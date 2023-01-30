@@ -1,0 +1,68 @@
+.explorer-container {
+    padding: 1.25rem 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.explorer-container > .explorer-title {
+    color: var(--text-page-secondary);
+    font-size: 1rem;
+    font-family: var(--ff-heading);
+    letter-spacing: 0.125rem;
+    text-transform: uppercase;
+    margin-left: 1.5rem;
+    margin-bottom: 0.75rem;
+
+    animation-name: slideUp;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.explorer-container > .explorer-folder > .button {
+    font-weight: bold;
+}
+
+.explorer-folder > .button > svg {
+    fill: var(--text-page-secondary);
+    margin-right: 0.5rem;
+
+    height: 0.5rem;
+    width: 0.5rem;
+}
+
+
+.explorer-folder > .button,
+.explorer-folder > .explorer-file > .button {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: auto;
+    background-color: var(--bg-explorer);
+    color: var(--text-page-secondary);
+    text-align: left;
+    height: 2.5rem;   
+    width: 100%;
+    border: none;
+}
+
+.explorer-folder >.button:hover,
+.explorer-folder > .explorer-file >.button:hover {
+    background-color: var(--bg-explorer-item-hover);
+    color: var(--text-page-primary);
+}
+
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

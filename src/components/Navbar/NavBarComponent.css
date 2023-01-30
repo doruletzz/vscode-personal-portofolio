@@ -1,0 +1,59 @@
+.nav-container > ul{
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-container > ul > li {
+    height: 4rem;
+}
+
+.nav-item {
+    height: 100%;
+}
+
+.nav-item.active::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    width: 0.1rem;
+    background-color: var(--nav-item-icon-fill-active);
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    animation-name: slideRight;
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.nav-item > .button{
+    background-color: var(--bg-nav);
+    color: var(--nav-item-icon-fill);
+    border: none;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 1.125rem;
+}
+
+.nav-item > .button > svg {
+    fill: var(--nav-item-icon-fill);
+    width: 100%;
+    height: 100%
+}
+
+.nav-item.active > .button > svg,
+.nav-item:hover > .button > svg {
+    fill: var(--nav-item-icon-fill-active);
+}
+
+
+@keyframes slideRight {
+    0% {
+        bottom: 100%;
+    }
+    100% {
+        bottom: 0;
+    }
+}

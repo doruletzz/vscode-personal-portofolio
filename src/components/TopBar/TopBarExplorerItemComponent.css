@@ -1,0 +1,75 @@
+.topbar-explorer-item-container {
+    height: 100%;
+    position: relative;
+}
+
+.topbar-explorer-item-container > .explorer-item-close {
+    background-color: var(--bg-page);
+
+    position: absolute;
+    border: 0;
+    border-radius: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+
+    height: 1.5rem;
+    width: 1.5rem;
+
+    margin: auto 0.5rem;
+}
+
+.topbar-explorer-item-container.active {
+    border-bottom: 0.125rem solid var(--nav-item-icon-fill);
+}
+
+.topbar-explorer-item-container.active > .explorer-item-close,
+.topbar-explorer-item-container.active > .explorer-item {
+    background-color: var(--bg-explorer-item-hover);
+}
+
+
+.topbar-explorer-item-container > .explorer-item-close:hover {    
+    background-color: var(--bg-explorer-item-hover);
+    border-radius: 0.375rem;
+    
+}
+
+
+.topbar-explorer-item-container.active > .explorer-item-close:hover {
+    background-color: var(--bg-explorer-item-active) !important;
+}
+
+.topbar-explorer-item-container > .explorer-item-close > svg {
+    fill: var(--nav-item-icon-fill);
+    margin: auto;
+    margin-top: 0.1rem;
+    height: 0.75rem;
+    width: 0.75rem;
+}
+
+.topbar-explorer-item-container > .explorer-item-close:hover > svg {
+    fill: var(--nav-item-icon-fill-active);
+}
+
+.topbar-explorer-item-container > .explorer-item {
+    height: 100%;
+
+    border: 0;
+    border-radius: 0;
+    background-color: var(--bg-page);
+    color: var(--nav-item-icon-fill);
+    padding-right: 2.5rem;
+    padding-left: 0.75rem;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.topbar-explorer-item-container > .explorer-item > svg {
+    fill: var(--nav-item-icon-fill);
+    height: 1.25rem;
+    width: 1.25rem;
+
+}

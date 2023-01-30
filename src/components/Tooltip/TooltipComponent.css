@@ -1,0 +1,43 @@
+.tooltip-wrapper {
+    position: relative;
+}
+
+.tooltip-wrapper:hover > .tooltip {
+    display: block;
+}
+
+.tooltip {
+    position: absolute;
+    z-index: 9;
+
+    max-height: 2rem;
+    font-size: 0.875rem;
+
+    background-color: var(--bg-nav);
+    color: var(--nav-item-icon-fill);
+    border: 0.075rem solid var(--bg-border);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+
+    display: none;
+}
+
+.tooltip.right {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 100%;
+    margin-left: 0.5rem;
+}
+
+.tooltip.left {
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100%;
+    margin-right: 0.5rem;
+}
+
+.tooltip.bottom {
+    top: 100%;
+    right: 0;
+    margin-top: 1rem;
+}

@@ -1,0 +1,63 @@
+.page-container {
+    padding-top: 2rem;
+}
+
+.page-container > .top-bar {
+    position: absolute;
+    height: 3rem;
+    top: 0;
+
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    border-bottom: 0.1rem solid var(--bg-border);
+    padding-right: 1rem;
+}
+
+.page-container > .top-bar > .explorer-items-container {
+    display: flex;
+    flex-direction: row;
+
+    height: 100%;
+}
+
+.page-container > .top-bar > .button-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-container > .top-bar > .button-container > .tooltip-wrapper {
+    margin: auto;
+}
+
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .tooltip {
+    text-transform: lowercase;
+}
+
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button {
+    width: 2rem;
+    height: 2rem;
+    margin: auto;
+
+    border: 0;
+    border-radius: 0.375rem;
+
+    background-color: var(--bg-page);
+}
+
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button > svg {
+    padding-top: 0.2rem;
+    margin: auto;
+    height: 1.25rem;
+    width: 1.25rem;
+    fill: var(--nav-item-icon-fill);
+}
+
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button:hover {
+    background-color: var(--bg-explorer-item-hover);
+}
+
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button:hover > svg {
+    fill: var(--nav-item-icon-fill-active);
+}

@@ -3,7 +3,9 @@ import { Module } from '../../constants/module';
 import { useAppSelector } from '../../features/app/hooks';
 
 import './ExplorerComponent.css';
+import { ModuleAboutExplorerComponent } from './ModuleAboutExplorerComponent';
 import { ModuleHomeExplorerComponent } from './ModuleHomeExplorerComponent';
+import { ModuleProjectsExplorer } from './ModuleProjectsExplorer';
 
 type ModuleExplorerComponentProps = {
 	module: Module;
@@ -11,6 +13,10 @@ type ModuleExplorerComponentProps = {
 
 const ModuleExplorerComponent = ({ module }: ModuleExplorerComponentProps) => {
 	if (module === Module.HOME) return <ModuleHomeExplorerComponent />;
+
+	if (module === Module.ABOUT) return <ModuleAboutExplorerComponent />;
+
+	if (module === Module.PROJECTS) return <ModuleProjectsExplorer />;
 
 	return <ModuleHomeExplorerComponent />;
 };

@@ -48,8 +48,14 @@
     width: 0.75rem;
 }
 
-.topbar-explorer-item-container > .explorer-item-close:hover > svg {
-    fill: var(--nav-item-icon-fill-active);
+.topbar-explorer-item-container:hover > .explorer-item-close > svg,
+.topbar-explorer-item-container.active > .explorer-item-close > svg{
+    fill: var(--nav-item-icon-fill);
+}
+
+
+.topbar-explorer-item-container > .explorer-item-close > svg {
+    fill: var(--bg-page);
 }
 
 .topbar-explorer-item-container > .explorer-item {

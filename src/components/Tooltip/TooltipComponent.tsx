@@ -4,7 +4,7 @@ import './TooltipComponent.css';
 
 interface TooltipComponentProps<T extends React.ElementType> {
 	component?: T;
-	title: string;
+	title?: string | boolean;
 	position?: 'left' | 'right' | 'top' | 'bottom';
 	children: React.ReactNode;
 }
@@ -18,7 +18,7 @@ export const TooltipComponent = <T extends React.ElementType = 'div'>({
 	const OverridenComponent = component || 'div';
 	return (
 		<OverridenComponent className='tooltip-wrapper'>
-			<div className={'tooltip ' + position}>{title}</div>
+			{title && <div className={'tooltip ' + position}>{title}</div>}
 			{children}
 		</OverridenComponent>
 	);

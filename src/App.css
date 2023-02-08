@@ -7,6 +7,7 @@
     min-height: 100vh;
     min-width: 100vw;
     
+    overflow: hidden;
 }
 
 .app-container > .nav-container {
@@ -40,6 +41,10 @@
     position: absolute;
     right: 0;
     transition: left 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+    max-height: 100%;
+
+    overflow: hidden;
+
 }
 
 .app-container > .page-container > *:nth-child(2) {
@@ -49,14 +54,9 @@
 
 @keyframes pageSlideDown {
     0% {
-        transform: translateY(-20%);
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
+        transform: translateX(-15%);
     }
     100% {
-        transform: translateY(0);
-        opacity: 1;
+        transform: translateX(0);
     }
 }

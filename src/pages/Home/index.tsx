@@ -1,5 +1,8 @@
+import { HomePageCodeComponent } from './HomePageCodeComponent';
 import { HomePageDisplayComponent } from './HomePageDisplayComponent';
 
-const HomePage = HomePageDisplayComponent;
+const HomePageDisplay = HomePageDisplayComponent;
 
-export { HomePage };
+const HomePageCode = HomePageCodeComponent;
+
+export { HomePageDisplay, HomePageCode };

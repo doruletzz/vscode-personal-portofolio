@@ -14,7 +14,7 @@ export const HomePageDisplayComponent = () => {
 	const CTA_SECONDARY = 'CHECK OUT MY PROJECTS';
 
 	return (
-		<div className='home-page'>
+		<div className='home-page-display'>
 			<p className='sub-heading'>{SUB_HEADING_1}</p>
 			<h1 className='heading'>{HEADING}</h1>
 			<p className='sub-heading'>{SUB_HEADING_2}</p>

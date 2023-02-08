@@ -1,0 +1,18 @@
+.top-bar > .button-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.top-bar > .button-container > .tooltip-wrapper {
+    position: relative;
+}
+
+.top-bar > .button-container > .tooltip-wrapper > .menu {
+    background-color: red;
+    min-width: 4rem;
+    top: 100%;
+    right: 0;
+    margin-top: 1rem;
+    position: absolute;
+    z-index: 90;
+}

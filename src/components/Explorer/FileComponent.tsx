@@ -1,21 +1,46 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import { Module } from '../../constants/module';
+import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
+import { setModuleName, setPath } from '../../features/module/slice';
 import Button from '../Button';
 
 type FileComponentProps = {
-	iconSrc?: string;
+	icon?: ReactComponent;
 	name: string;
 	path: Array<string>;
 };
 
-export const FileComponent = ({ iconSrc, name, path }: FileComponentProps) => {
+export const FileComponent = ({ icon, name, path }: FileComponentProps) => {
+	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
+	const { name: moduleName, path: modulePath } = useAppSelector(
+		(state) => state.module
+	);
 	const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
+	const compare = <T,>(obj1: T, obj2: T) => {
+		return JSON.stringify(obj1) === JSON.stringify(obj2);
+	};
+
 	return (
-		<div className='explorer-file'>
+		<div
+			className={`explorer-file${
+				compare(path, modulePath) ? ' active' : ''
+			}`}
+		>
 			<Button
 				style={{ paddingLeft: `${path.length * 0.75}rem` }}
-				onClick={() => setIsExpanded((prev) => !prev)}
+				onClick={() => {
+					navigate(
+						Module[moduleName].toLocaleLowerCase() +
+							'/' +
+							path.join('/')
+					);
+					dispatch(setPath(path));
+				}}
 			>
+				{icon}
 				{name}
 			</Button>
 		</div>

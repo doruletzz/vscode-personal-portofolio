@@ -2,19 +2,29 @@ import { useState } from 'react';
 import Button from '../Button';
 import { ReactComponent as DropDown } from '../../assets/drop-down.svg';
 import { ReactComponent as DropRight } from '../../assets/drop-right.svg';
+import { ReactComponent as FolderOpen } from '../../assets/folder-open.svg';
+import { ReactComponent as FolderClosed } from '../../assets/folder-closed.svg';
 
 type FolderComponentProps = {
-	iconSrc?: string;
+	icon?: boolean;
 	name: string;
 	path: Array<string>;
 	children?: React.ReactNode;
 };
 
-const DropDownIcon = ({ isExpanded }) =>
-	isExpanded ? <DropDown /> : <DropRight />;
+type DropDownIconProps = {
+	expanded: boolean;
+};
+
+const DropDownIcon = ({ expanded = false }: DropDownIconProps) =>
+	expanded ? (
+		<DropDown className='dropdown' />
+	) : (
+		<DropRight className='dropdown' />
+	);
 
 export const FolderComponent = ({
-	iconSrc,
+	icon,
 	name,
 	path,
 	children,
@@ -27,7 +37,13 @@ export const FolderComponent = ({
 				style={{ paddingLeft: `${path.length * 0.75}rem` }}
 				onClick={() => setIsExpanded((prev) => !prev)}
 			>
-				<DropDownIcon isExpanded={isExpanded} />
+				<DropDownIcon expanded={isExpanded} />
+				{icon &&
+					(isExpanded ? (
+						<FolderOpen className='folder-icon' />
+					) : (
+						<FolderClosed className='folder-icon' />
+					))}
 				{name}
 			</Button>
 			{isExpanded && children}

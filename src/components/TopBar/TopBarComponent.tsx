@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, useState } from 'react';
 import { View } from '../../constants/view';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
 import { setView } from '../../features/view/slice';
@@ -8,6 +8,10 @@ import { TopBarExplorerItemComponent } from './TopBarExplorerItemComponent';
 
 import { ReactComponent as CodeIcon } from '../../assets/code.svg';
 import { ReactComponent as DisplayIcon } from '../../assets/display.svg';
+import { ReactComponent as SettingsIcon } from '../../assets/settings.svg';
+import Menu from '../Menu';
+
+import './TopBarComponent.css';
 
 type TopBarButtonIconProps = {
 	view: View;
@@ -24,6 +28,8 @@ const TopBarButtonIcon = ({ view }: TopBarButtonIconProps) => {
 export const TopBarComponent = () => {
 	const { view } = useAppSelector((state) => state.view);
 	const dispatch = useAppDispatch();
+
+	const [showSettingsMenu, setShowSettingsMenu] = useState<boolean>(false);
 
 	const handleChangeViewButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
 		dispatch(setView(view === View.CODE ? View.DISPLAY : View.CODE));
@@ -62,6 +68,22 @@ export const TopBarComponent = () => {
 					>
 						<TopBarButtonIcon view={view} />
 					</Button>
+				</Tooltip>
+				<Tooltip
+					position='bottom'
+					title={!showSettingsMenu && 'more...'}
+				>
+					<Button
+						onClick={() => setShowSettingsMenu((prev) => !prev)}
+						className='change-view'
+					>
+						<SettingsIcon />
+					</Button>
+					{showSettingsMenu && (
+						<Menu>
+							<div>aaa</div>
+						</Menu>
+					)}
 				</Tooltip>
 			</div>
 		</div>

@@ -19,7 +19,7 @@ import { ReactComponent as ProjectsIcon } from './assets/projects.svg';
 import { ReactComponent as GithubIcon } from './assets/github.svg';
 import { ReactComponent as BlogIcon } from './assets/blog.svg';
 import { ReactComponent as ContactIcon } from './assets/contact.svg';
-import { HomePage } from './pages';
+import { AboutPage, HomePage } from './pages';
 import PageView from './components/PageView';
 
 const navItems = [
@@ -70,7 +70,8 @@ const App = () => {
 				<PageView>
 					<Routes>
 						{/* <HomePage /> */}
-						<Route path='/' element={<HomePage />} />
+						<Route path='home/*' element={<HomePage />} />
+						<Route path='about/*' element={<AboutPage />} />
 					</Routes>
 				</PageView>
 			</Router>

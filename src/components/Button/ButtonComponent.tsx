@@ -3,6 +3,7 @@ import React from 'react';
 import './ButtonComponent.css';
 
 type ButtonComponentProps = {
+	id: string;
 	className?: string;
 	style?: React.CSSProperties;
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -10,6 +11,7 @@ type ButtonComponentProps = {
 };
 
 export const ButtonComponent = ({
+	id,
 	children,
 	style,
 	className,
@@ -17,6 +19,7 @@ export const ButtonComponent = ({
 }: ButtonComponentProps) => {
 	return (
 		<button
+			aria-label={id}
 			className={`button ${className ?? ''}`}
 			onClick={onClick}
 			style={style}

@@ -1,18 +1,20 @@
-import { View } from '../constants/view';
-import { useAppSelector } from '../features/app/hooks';
-import { AboutPageCode, AboutPageDisplay } from './About';
-import { HomePageDisplay, HomePageCode } from './Home';
+// import { View } from '../constants/view';
+// import { useAppSelector } from '../features/app/hooks';
+// import { AboutPageCode, AboutPageDisplay } from './About';
+// import { HomePageDisplay, HomePageCode } from './Home';
+// import { BlogPageDisplay, BlogPostPageDisplay } from './Blog';
+// import { ProjectsPageDorletzDisplay } from './Projects';
+// import { Route, Routes } from 'react-router';
 
-const HomePage = () => {
-	const { view } = useAppSelector((state) => state.view);
+// // const ProjectsPage = ProjectsPageDorletzDisplay
 
-	return view === View.CODE ? <HomePageCode /> : <HomePageDisplay />;
-};
+// const BlogPage = BlogPageDisplay;
 
-const AboutPage = () => {
-	const { view } = useAppSelector((state) => state.view);
+// const BlogPostPage = BlogPostPageDisplay;
 
-	return view === View.CODE ? <AboutPageCode /> : <AboutPageDisplay />;
-};
+// export { HomePage, AboutPage, BlogPage, ProjectsPage, BlogPostPage };
 
-export { HomePage, AboutPage };
+export * from './Home';
+export * from './About';
+export * from './Blog';
+export * from './Projects';

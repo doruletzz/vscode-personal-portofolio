@@ -21,12 +21,14 @@ export const HomePageDisplayComponent = () => {
 			<br />
 			<div className='cta-buttons'>
 				<Button
+					id={CTA_PRIMARY}
 					className='cta-primary'
 					onClick={() => console.log('contact')}
 				>
 					{CTA_PRIMARY}
 				</Button>
 				<Button
+					id={CTA_SECONDARY}
 					className='cta-secondary'
 					onClick={() => console.log('contact')}
 				>

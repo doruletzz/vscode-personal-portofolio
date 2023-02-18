@@ -1,6 +1,11 @@
 import './App.css';
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import {
 	PATH_ABOUT,
@@ -10,7 +15,7 @@ import {
 	PATH_PROJECTS,
 } from './constants/paths';
 import Explorer from './components/Explorer';
-import { useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { Module } from './constants/module';
 
 import { ReactComponent as HomeIcon } from './assets/home.svg';
@@ -19,7 +24,17 @@ import { ReactComponent as ProjectsIcon } from './assets/projects.svg';
 import { ReactComponent as GithubIcon } from './assets/github.svg';
 import { ReactComponent as BlogIcon } from './assets/blog.svg';
 import { ReactComponent as ContactIcon } from './assets/contact.svg';
-import { AboutPage, HomePage } from './pages';
+
+const HomePage = lazy(() => import('./pages/Home'));
+const AboutPage = lazy(() => import('./pages/About'));
+const ProjectsPage = lazy(() => import('./pages/Projects'));
+const BlogPage = lazy(() => import('./pages/Blog'));
+
+// import HomePage from './pages/Home';
+// import AboutPage from './pages/About';
+// import ProjectsPage from './pages/Projects';
+// import BlogPage from './pages/Blog';
+
 import PageView from './components/PageView';
 
 const navItems = [
@@ -68,11 +83,20 @@ const App = () => {
 				<Navbar items={navItems} />
 				<Explorer />
 				<PageView>
-					<Routes>
-						{/* <HomePage /> */}
-						<Route path='home/*' element={<HomePage />} />
-						<Route path='about/*' element={<AboutPage />} />
-					</Routes>
+					<Suspense fallback={<div>fallback</div>}>
+						<Routes>
+							{/* <HomePage /> */}
+							<Route path='home/*' element={<HomePage />} />
+							<Route path='about/*' element={<AboutPage />} />
+							<Route path='blog/:id' element={<BlogPage />} />
+							{/* <Route path='blog/' element={<BlogPage />} /> */}
+							<Route
+								path='projects/*'
+								element={<ProjectsPage />}
+							/>
+							<Route path='*' element={<Navigate to='home/' />} />
+						</Routes>
+					</Suspense>
 				</PageView>
 			</Router>
 		</div>

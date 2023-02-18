@@ -7,11 +7,13 @@ import Tooltip from '../Tooltip';
 import { TopBarExplorerItemComponent } from './TopBarExplorerItemComponent';
 
 import { ReactComponent as CodeIcon } from '../../assets/code.svg';
+import { ReactComponent as ClickIcon } from '../../assets/click-2.svg';
 import { ReactComponent as DisplayIcon } from '../../assets/display.svg';
 import { ReactComponent as SettingsIcon } from '../../assets/settings.svg';
 import Menu from '../Menu';
 
 import './TopBarComponent.css';
+import Badge from '../Badge';
 
 type TopBarButtonIconProps = {
 	view: View;
@@ -63,10 +65,13 @@ export const TopBarComponent = () => {
 			<div className='button-container'>
 				<Tooltip position='bottom' title={View[view]}>
 					<Button
+						id='change view'
 						onClick={handleChangeViewButtonClick}
 						className='change-view'
 					>
-						<TopBarButtonIcon view={view} />
+						<Badge vertical='bottom' badgeContent={<ClickIcon />}>
+							<TopBarButtonIcon view={view} />
+						</Badge>
 					</Button>
 				</Tooltip>
 				<Tooltip
@@ -74,8 +79,9 @@ export const TopBarComponent = () => {
 					title={!showSettingsMenu && 'more...'}
 				>
 					<Button
+						id='settings'
 						onClick={() => setShowSettingsMenu((prev) => !prev)}
-						className='change-view'
+						className='settings'
 					>
 						<SettingsIcon />
 					</Button>

@@ -4,6 +4,7 @@ import { useAppSelector } from '../../features/app/hooks';
 
 import './ExplorerComponent.css';
 import { ModuleAboutExplorerComponent } from './ModuleAboutExplorerComponent';
+import { ModuleBlogExplorerComponent } from './ModuleBlogExplorerComponent';
 import { ModuleHomeExplorerComponent } from './ModuleHomeExplorerComponent';
 import { ModuleProjectsExplorer } from './ModuleProjectsExplorer';
 
@@ -17,6 +18,8 @@ const ModuleExplorerComponent = ({ module }: ModuleExplorerComponentProps) => {
 	if (module === Module.ABOUT) return <ModuleAboutExplorerComponent />;
 
 	if (module === Module.PROJECTS) return <ModuleProjectsExplorer />;
+
+	if (module === Module.BLOG) return <ModuleBlogExplorerComponent />;
 
 	return <ModuleHomeExplorerComponent />;
 };
@@ -34,17 +37,19 @@ export const ExplorerComponent = () => {
 	}, [isExpanded]);
 
 	return (
-		isExpanded && (
-			<div
-				className='explorer-container'
-				style={{ width: explorerWidth }}
-			>
-				<h4 key={Module[name]} className='explorer-title'>
-					{Module[name] ?? 'explorer'}
-				</h4>
+		<>
+			{isExpanded && (
+				<div
+					className='explorer-container'
+					style={{ width: explorerWidth }}
+				>
+					<h4 key={Module[name]} className='explorer-title'>
+						{Module[name] ?? 'explorer'}
+					</h4>
 
-				<ModuleExplorerComponent module={name} />
-			</div>
-		)
+					<ModuleExplorerComponent module={name} />
+				</div>
+			)}
+		</>
 	);
 };

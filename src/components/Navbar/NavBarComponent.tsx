@@ -1,4 +1,4 @@
-import React, { MouseEvent, useState } from 'react';
+import React, { MouseEvent, ReactNode, useState } from 'react';
 import Button from '../Button';
 import Tooltip from '../Tooltip';
 import { Link } from 'react-router-dom';
@@ -28,7 +28,7 @@ const NavItem = ({ title, isSelected, children }: NavItemProps) => (
 interface NavItem {
 	moduleName: Module;
 	title: string;
-	icon: ReactComponent;
+	icon: ReactNode;
 }
 
 type NavBarComponentProps = {
@@ -42,7 +42,7 @@ export const NavBarComponent = ({ items }: NavBarComponentProps) => {
 	const dispatch = useAppDispatch();
 
 	const handleClick = (
-		e: MouseEvent<HTMLButtonElement, MouseEvent>,
+		e: MouseEvent<HTMLButtonElement>,
 		moduleName: Module
 	) => {
 		if (moduleName === name) dispatch(setIsModuleExpanded(!isExpanded));
@@ -58,7 +58,10 @@ export const NavBarComponent = ({ items }: NavBarComponentProps) => {
 						key={title}
 						title={title}
 					>
-						<Button onClick={(e) => handleClick(e, moduleName)}>
+						<Button
+							id={Module[moduleName].toString().toLowerCase()}
+							onClick={(e) => handleClick(e, moduleName)}
+						>
 							{icon}
 						</Button>
 					</NavItem>
@@ -72,7 +75,10 @@ export const NavBarComponent = ({ items }: NavBarComponentProps) => {
 						key={title}
 						title={title}
 					>
-						<Button onClick={(e) => handleClick(e, moduleName)}>
+						<Button
+							id={Module[moduleName].toString().toLowerCase()}
+							onClick={(e) => handleClick(e, moduleName)}
+						>
 							{icon}
 						</Button>
 					</NavItem>

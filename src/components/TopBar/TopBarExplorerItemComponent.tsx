@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, ReactNode } from 'react';
 import Button from '../Button';
 
 import './TopBarExplorerItemComponent.css';
@@ -6,10 +6,10 @@ import { ReactComponent as CloseIcon } from '../../assets/close.svg';
 
 type TopBarExplorerItemComponentProps = {
 	active?: boolean;
-	icon?: ReactComponent;
+	icon?: ReactNode;
 	title: string;
-	onClick: (e: MouseEvent<HTMLButtonElement>) => {};
-	onClose: (e: MouseEvent<HTMLButtonElement>) => {};
+	onClick: (e: MouseEvent<HTMLButtonElement>) => void;
+	onClose: (e: MouseEvent<HTMLButtonElement>) => void;
 };
 
 export const TopBarExplorerItemComponent = ({
@@ -25,10 +25,14 @@ export const TopBarExplorerItemComponent = ({
 				!!active ? ' active' : ''
 			}`}
 		>
-			<Button className='explorer-item-close' onClick={onClose}>
+			<Button
+				id='close'
+				className='explorer-item-close'
+				onClick={onClose}
+			>
 				<CloseIcon />
 			</Button>
-			<Button className='explorer-item' onClick={onClick}>
+			<Button id={title} className='explorer-item' onClick={onClick}>
 				{icon}
 				{title}
 			</Button>

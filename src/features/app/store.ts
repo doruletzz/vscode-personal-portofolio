@@ -1,8 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit';
-// import { ThunkAction } from 'redux-thunk';
+import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 
 import themeReducer from '../theme/slice';
 import moduleReducer from '../module/slice';
+import blogReducer from '../blog/slice';
 import viewReducer from '../view/slice';
 
 export const store = configureStore({
@@ -10,6 +10,7 @@ export const store = configureStore({
 		view: viewReducer,
 		module: moduleReducer,
 		theme: themeReducer,
+		blog: blogReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
@@ -19,4 +20,4 @@ export const store = configureStore({
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-// export type AppThunk = ThunkAction<void, RootState, unknown, Action>;
+export type AppThunk = ThunkAction<void, RootState, unknown, Action>;

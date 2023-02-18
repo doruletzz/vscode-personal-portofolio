@@ -1,0 +1,43 @@
+.progress-container {
+    aspect-ratio: 1 / 1;
+    width: 5rem;
+    height: 5rem;
+}
+
+.progress-container > svg {
+   animation: rotateProgress 1.6s linear forwards infinite;
+}
+
+.progress-container > svg > circle {  
+    margin: auto;  
+    stroke: var(--nav-item-icon-fill);
+    stroke-dasharray: 200px;
+    stroke-dashoffset: 0;
+    pointer-events: none;
+    animation: animateProgress 3.6s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;
+ 
+}
+
+@keyframes rotateProgress {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes animateProgress {
+    0% {
+        stroke-dasharray: 40px,200px;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 100px,200px;
+        stroke-dashoffset: -30px;
+    }
+    100% {
+        stroke-dasharray: 120px,200px;
+        stroke-dashoffset: -125px;
+    }
+}

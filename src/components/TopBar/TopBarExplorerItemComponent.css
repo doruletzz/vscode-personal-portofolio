@@ -17,6 +17,7 @@
     width: 1.5rem;
 
     margin: auto 0.5rem;
+    z-index: 2;
 }
 
 .topbar-explorer-item-container.active {

@@ -34,6 +34,7 @@ export const FolderComponent = ({
 	return (
 		<div className={`explorer-folder${isExpanded ? ' expanded' : ''}`}>
 			<Button
+				id='folder'
 				style={{ paddingLeft: `${path.length * 0.75}rem` }}
 				onClick={() => setIsExpanded((prev) => !prev)}
 			>
@@ -44,7 +45,8 @@ export const FolderComponent = ({
 					) : (
 						<FolderClosed className='folder-icon' />
 					))}
-				{name}
+
+				<p className='text'>{name}</p>
 			</Button>
 			{isExpanded && children}
 		</div>

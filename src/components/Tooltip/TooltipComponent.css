@@ -8,10 +8,11 @@
 
 .tooltip {
     position: absolute;
-    z-index: 9;
+    z-index: 99;
 
     max-height: 2rem;
     font-size: 0.875rem;
+    font-weight: normal;
 
     background-color: var(--bg-nav);
     color: var(--nav-item-icon-fill);

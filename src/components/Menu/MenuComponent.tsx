@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-export const MenuComponent = ({ children }) => {
+type MenuComponentProps = {
+	children: ReactNode;
+};
+
+export const MenuComponent = ({ children }: MenuComponentProps) => {
 	return <div className='menu'>{children}</div>;
 };

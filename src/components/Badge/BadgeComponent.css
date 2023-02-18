@@ -1,0 +1,60 @@
+.badge-container {
+    position: relative;
+}
+
+.badge-container > .badge {
+    position: absolute;
+
+    border-radius: 100%;
+
+    max-height: 1rem;
+    min-width: 1rem;
+    padding: 0.25rem;
+    color: var(--text-page-secondary);
+
+    font-size: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    animation: scaleUp 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.badge-container > .badge > svg {
+    fill: var(--text-page-secondary);
+
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+
+.badge-container > .badge.alert {
+    background-color: blueviolet;
+   
+}
+
+.badge-container > .badge.top {
+    top: -0.25rem;
+}
+
+.badge-container > .badge.bottom {
+    bottom: -0.25rem;
+}
+
+.badge-container > .badge.left {
+    left: -0.25rem;
+}
+
+.badge-container > .badge.right {
+    right: -0.25rem;
+}
+
+@keyframes scaleUp {
+    0% {
+        transform: scale(0%);
+    }
+    100% {
+        transform: scale(100%);
+    }
+}
+

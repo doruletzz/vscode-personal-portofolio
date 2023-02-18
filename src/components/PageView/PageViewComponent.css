@@ -46,7 +46,8 @@
     background-color: var(--bg-page);
 }
 
-.page-container > .top-bar > .button-container > .tooltip-wrapper > .button > svg {
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button > svg,
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button > .badge-container > svg {
     padding-top: 0.2rem;
     margin: auto;
     height: 1.25rem;
@@ -58,6 +59,7 @@
     background-color: var(--bg-explorer-item-hover);
 }
 
-.page-container > .top-bar > .button-container > .tooltip-wrapper > .button:hover > svg {
-    fill: var(--nav-item-icon-fill-active);
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button:hover > svg,
+.page-container > .top-bar > .button-container > .tooltip-wrapper > .button:hover > .badge-container > svg {
+        fill: var(--nav-item-icon-fill-active);
 }

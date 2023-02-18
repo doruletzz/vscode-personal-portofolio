@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Module } from '../../constants/module';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
@@ -6,7 +6,7 @@ import { setModuleName, setPath } from '../../features/module/slice';
 import Button from '../Button';
 
 type FileComponentProps = {
-	icon?: ReactComponent;
+	icon?: ReactNode;
 	name: string;
 	path: Array<string>;
 };
@@ -30,6 +30,7 @@ export const FileComponent = ({ icon, name, path }: FileComponentProps) => {
 			}`}
 		>
 			<Button
+				id='file'
 				style={{ paddingLeft: `${path.length * 0.75}rem` }}
 				onClick={() => {
 					navigate(
@@ -41,7 +42,7 @@ export const FileComponent = ({ icon, name, path }: FileComponentProps) => {
 				}}
 			>
 				{icon}
-				{name}
+				<p className='text'>{name}</p>
 			</Button>
 		</div>
 	);

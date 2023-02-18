@@ -3,7 +3,7 @@
 
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.5rem;
 }
 
 .explorer-container > .explorer-title {
@@ -14,6 +14,11 @@
     text-transform: uppercase;
     margin-left: 1.5rem;
     margin-bottom: 0.75rem;
+
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     animation-name: slideUp;
     animation-duration: 0.7s;
@@ -54,15 +59,20 @@
 
 .explorer-folder > .button,
 .explorer-folder > .explorer-file > .button {
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: auto;
+    overflow: hidden;
     background-color: var(--bg-explorer);
     color: var(--text-page-secondary);
     text-align: left;
     height: 2.5rem;   
     width: 100%;
     border: none;
+}
+
+.explorer-folder > .button > .text,
+.explorer-folder > .explorer-file > .button > .text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .explorer-folder >.button:hover,
@@ -80,10 +90,11 @@
     display: grid;
     height: 5rem;
     grid-template-columns: 2.25rem 1fr 2rem;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 4fr 3fr;
 
-    padding: 0.5rem;
     column-gap: 0.5rem;
+    padding: 0.5rem;
+    overflow: hidden;
 }
 
 .explorer-project > .explorer-project-icon {
@@ -103,6 +114,10 @@
     font-size: 1.125rem;
 
     margin-top: auto;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .explorer-project > .explorer-project-title:first-child,
@@ -111,26 +126,61 @@
 }
 
 .explorer-project > .explorer-project-description {
+    font-weight: normal;
+    color: var(--text-page-secondary);
+
     grid-column: 2 / 3;
     grid-row: 2;
     margin-bottom: auto;
 
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.explorer-project > .explorer-project-button:nth-last-child(2) {
+.explorer-project > .tooltip-wrapper > .explorer-project-button {
+    display: flex;
+    align-items: center;
+
+    height: 1.5rem;
+    width: 1.5rem;
+
+    margin: auto;
+}
+
+.explorer-project > .tooltip-wrapper > .explorer-project-button > svg {
+    fill: var(--text-page-primary);
+    margin: auto;
+
+    height: 1rem;
+    width: 1rem;
+}
+
+.explorer-project > .tooltip-wrapper:hover {
+    background-color: var(--bg-explorer-item-active)
+}
+
+.explorer-project > .tooltip-wrapper:nth-last-child(2) {
     grid-row: 1;
     grid-column: 3;
-    background-color: green;
-    z-index: 12;
+    z-index: 99;
+
+    border-radius: 0.375rem;
 }
 
-.explorer-project > .explorer-project-button:nth-last-child(1) {
+.explorer-project > .tooltip-wrapper:nth-last-child(1) {
     grid-row: span 2;
     grid-column: 3;
-    background-color: yellow;
-    z-index: 12;
+    z-index: 99;
+    
+    height: 1.5rem;
+    width: 1.5rem;
+    border-radius: 0.375rem;
+
+    margin: auto;
+
+    display: flex;
+    align-items: center;
 }
 
 @keyframes slideUp {

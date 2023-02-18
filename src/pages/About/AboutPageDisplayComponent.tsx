@@ -46,12 +46,14 @@ export const AboutPageDisplayComponent = () => {
 				<p className='content'>{CONTENT}</p>
 				<div className='cta-buttons'>
 					<Button
+						id={BUTTON_PRIMARY}
 						className='cta-primary'
 						onClick={() => alert('clicked')}
 					>
 						{BUTTON_PRIMARY}
 					</Button>
 					<Button
+						id={BUTTON_SECONDARY}
 						className='cta-secondary'
 						onClick={() => alert('clicked')}
 					>
@@ -68,6 +70,7 @@ export const AboutPageDisplayComponent = () => {
 				</ul>
 				<div className='cta-buttons'>
 					<Button
+						id={BUTTON_PRIMARY}
 						className='cta-primary'
 						onClick={() => alert('clicked')}
 					>

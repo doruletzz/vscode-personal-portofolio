@@ -5,3 +5,24 @@
 .button:hover {
     transform: translateY(-0.05rem);
 }
+
+.button.primary {
+    background-color: var(--text-page-secondary);
+    color: var(--bg-page);
+    border: 0;
+}
+
+.button.primary:hover {
+    background-color: var(--text-page-primary);
+}
+
+.button.text:hover {
+    background-color: var(--bg-explorer-item-active);
+    color: var(--nav-item-icon-fill-active);
+}
+
+.button.text {
+    background-color: transparent;
+    color: var(--nav-item-icon-fill);
+    border: 0;
+}

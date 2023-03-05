@@ -1,0 +1,16 @@
+:root:has(.initial) {
+    font-size: 14px;
+}
+
+:root {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url("/src/assets/Image.png.png");
+    background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center; 
+}

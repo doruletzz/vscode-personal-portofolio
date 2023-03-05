@@ -29,6 +29,7 @@ const TopBarButtonIcon = ({ view }: TopBarButtonIconProps) => {
 
 export const TopBarComponent = () => {
 	const { view } = useAppSelector((state) => state.view);
+	const { focused, data } = useAppSelector((state) => state.explorer);
 	const dispatch = useAppDispatch();
 
 	const [showSettingsMenu, setShowSettingsMenu] = useState<boolean>(false);
@@ -40,7 +41,17 @@ export const TopBarComponent = () => {
 	return (
 		<div className='top-bar'>
 			<div className='explorer-items-container'>
-				<TopBarExplorerItem
+				{data.map((item) => (
+					<TopBarExplorerItem
+						key={item.path}
+						active={item.path === focused?.path}
+						title={item.title}
+						icon={item.icon}
+						onClick={item.onClick}
+						onClose={item.onClose}
+					/>
+				))}
+				{/* <TopBarExplorerItem
 					active
 					title={'index.html'}
 					icon={<CodeIcon />}
@@ -60,11 +71,13 @@ export const TopBarComponent = () => {
 					onClose={() => {
 						console.log('hw');
 					}}
-				/>
+				/> */}
 			</div>
 			<div className='button-container'>
 				<Tooltip position='bottom' title={View[view]}>
 					<Button
+						disabled
+						type='text'
 						id='change view'
 						onClick={handleChangeViewButtonClick}
 						className='change-view'
@@ -79,6 +92,7 @@ export const TopBarComponent = () => {
 					title={!showSettingsMenu && 'more...'}
 				>
 					<Button
+						type='text'
 						id='settings'
 						onClick={() => setShowSettingsMenu((prev) => !prev)}
 						className='settings'

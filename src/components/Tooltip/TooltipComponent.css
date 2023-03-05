@@ -10,7 +10,6 @@
     position: absolute;
     z-index: 99;
 
-    max-height: 2rem;
     font-size: 0.875rem;
     font-weight: normal;
 
@@ -19,6 +18,8 @@
     border: 0.075rem solid var(--bg-border);
     border-radius: 0.25rem;
     padding: 0.5rem;
+
+    text-align: center;
 
     display: none;
 }
@@ -39,6 +40,14 @@
 
 .tooltip.bottom {
     top: 100%;
-    right: 0;
-    margin-top: 1rem;
+    transform: translateX(50%);
+    right: 50%;
+    margin-top: 0.75rem;
+}
+
+.tooltip.top {
+    bottom: 100%;
+    transform: translateX(50%);
+    right: 50%;
+    margin-bottom: 0.75rem;
 }

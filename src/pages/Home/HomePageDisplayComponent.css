@@ -41,6 +41,9 @@
     text-transform: lowercase;
     white-space: nowrap;
     margin-left: -0.2rem;
+
+    
+    animation: none;
 }
 
 .page-container > .home-page-display > .heading:hover::before {
@@ -76,38 +79,15 @@
     gap: 3rem;
 }
 
+.page-container > .home-page-display > .cta-buttons > .cta-primary:hover,
+.page-container > .home-page-display > .cta-buttons > .cta-secondary:hover  {
+    padding: 0.75rem 3rem;
+}
+
+.page-container > .home-page-display > .cta-buttons > .cta-secondary,
 .page-container > .home-page-display > .cta-buttons > .cta-primary {
-    font-size: 1rem;
-    font-family: var(--ff-content);
+    transition: padding 0.7s ease;
     padding: 0.75rem;
-    background-color: var(--text-page-secondary);
-    color: var(--bg-page);
-    text-transform: uppercase;
-    border: 0;
-    transition: padding 1s ease;
-}
-
-.page-container > .home-page-display > .cta-buttons > .cta-primary:hover {
-    background-color: var(--text-page-primary);
-    padding: 0.75rem 3rem;
-}
-
-.page-container > .home-page-display > .cta-buttons > .cta-secondary:hover {
-    background-color: var(--bg-explorer-item-active);
-    color: var(--nav-item-icon-fill-active);
-    padding: 0.75rem 3rem;
-}
-
-.page-container > .home-page-display > .cta-buttons > .cta-secondary {
-    font-size: 1rem;
-    font-family: var(--ff-content);
-    padding: 0.75rem;
-    background-color: transparent;
-    color: var(--nav-item-icon-fill);
-    text-transform: uppercase;
-    border: 0;
-    transition: padding 1s ease;
-
 }
 
 @keyframes rotate {

@@ -7,6 +7,7 @@ import { ModuleAboutExplorerComponent } from './ModuleAboutExplorerComponent';
 import { ModuleBlogExplorerComponent } from './ModuleBlogExplorerComponent';
 import { ModuleHomeExplorerComponent } from './ModuleHomeExplorerComponent';
 import { ModuleProjectsExplorer } from './ModuleProjectsExplorer';
+import { ModuleGithubExplorerComponent } from './ModuleGithubExplorerComponent';
 
 type ModuleExplorerComponentProps = {
 	module: Module;
@@ -20,6 +21,8 @@ const ModuleExplorerComponent = ({ module }: ModuleExplorerComponentProps) => {
 	if (module === Module.PROJECTS) return <ModuleProjectsExplorer />;
 
 	if (module === Module.BLOG) return <ModuleBlogExplorerComponent />;
+
+	if (module === Module.GITHUB) return <ModuleGithubExplorerComponent />;
 
 	return <ModuleHomeExplorerComponent />;
 };

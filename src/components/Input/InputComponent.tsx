@@ -12,12 +12,14 @@ import './InputComponent.css';
 
 type InputComponentProps = {
 	icon?: ReactNode;
+	required?: boolean;
 	label?: string;
 	value: string;
 	setValue: Dispatch<SetStateAction<string>>;
 };
 
 export const InputComponent = ({
+	required = false,
 	value,
 	setValue,
 	icon,
@@ -30,7 +32,11 @@ export const InputComponent = ({
 	};
 
 	return (
-		<div className={`input${!value ? ' empty' : ''}`}>
+		<div
+			className={`input${!value ? ' empty' : ''}${
+				required ? ' required' : ''
+			}`}
+		>
 			{icon && <SearchIcon />}
 			{label && <label htmlFor='input-field'>{label} </label>}
 			<input id='input-field' value={value} onChange={handleChange} />

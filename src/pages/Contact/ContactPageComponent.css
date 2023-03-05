@@ -1,0 +1,120 @@
+.page-container > .contact-page-display {
+    overflow: auto;
+
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 0.5rem;
+}
+
+.page-container > .contact-page-display > .heading {
+    position: relative;
+    font-family: var(--ff-heading);
+    font-weight: bold;
+    font-size: 4rem;
+    color: var(--text-page-primary);
+
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 1rem;
+}
+
+.page-container > .contact-page-display > .heading:last-of-type{
+    margin-bottom: 3rem;
+}
+
+.page-container > .contact-page-display > .contacts {
+    display: flex;
+    height: 100%;
+    width: 100%;
+
+    gap: 12rem;
+}
+
+.page-container > .contact-page-display > .contacts > .card.form:hover {
+    background-color: var(--bg-page);
+}
+
+.page-container > .contact-page-display > .contacts > .card.form > .card-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 3rem 3rem 1fr 2rem;
+    gap: 3rem;
+
+    height: 100%;
+    padding: 2rem;
+}
+
+.page-container > .contact-page-display > .contacts > .card.form > .card-content > .input:nth-child(3),
+.page-container > .contact-page-display > .contacts > .card.form > .card-content > .textarea {
+    grid-column: span 2;
+}
+
+.page-container > .contact-page-display > .contacts > .card.form > .card-content > .textarea > textarea{
+  height: 100%;
+}
+
+.page-container > .contact-page-display > .contacts > .socials {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1.75rem;
+    margin: 0 12rem 0rem 2rem;
+}
+
+.page-container > .contact-page-display > .contacts > .socials > h6 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-family: var(--ff-heading);
+    color: var(--text-page-secondary);
+}
+
+.page-container > .contact-page-display > .contacts > .socials > ul > li::before {
+    content: "";
+    background-color: var(--bg-explorer-item-hover);
+    z-index: -1;
+    position: absolute;
+    width: 3rem;
+    height: 1.25rem;
+    bottom: 0;
+    top: -0.25rem;
+    left: -1rem;
+
+    transition: width 0.7s ease, height 0.7s ease;
+}
+
+.page-container > .contact-page-display > .contacts > .socials > ul > li:hover::before {
+    width: 1.25rem;
+    height: 2.25rem;
+}
+
+.page-container > .contact-page-display > .contacts > .socials > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    line-height: 1.75;
+
+    margin-left: 6rem;
+}
+
+.page-container > .contact-page-display > .contacts > .socials > ul > li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+}
+
+.page-container > .contact-page-display > .contacts > .socials > ul > li > a {
+    font-family: var(--ff-content);
+    text-transform: uppercase;
+    color: var(--text-page-secondary);
+    text-decoration: none;
+}

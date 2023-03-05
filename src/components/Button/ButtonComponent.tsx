@@ -4,6 +4,8 @@ import './ButtonComponent.css';
 
 type ButtonComponentProps = {
 	id: string;
+	disabled?: boolean;
+	type?: 'primary' | 'text' | 'secondary';
 	className?: string;
 	style?: React.CSSProperties;
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
@@ -12,6 +14,8 @@ type ButtonComponentProps = {
 
 export const ButtonComponent = ({
 	id,
+	disabled = false,
+	type = 'primary',
 	children,
 	style,
 	className,
@@ -19,8 +23,9 @@ export const ButtonComponent = ({
 }: ButtonComponentProps) => {
 	return (
 		<button
+			disabled={disabled}
 			aria-label={id}
-			className={`button ${className ?? ''}`}
+			className={`button ${type} ${className ?? ''}`}
 			onClick={onClick}
 			style={style}
 		>

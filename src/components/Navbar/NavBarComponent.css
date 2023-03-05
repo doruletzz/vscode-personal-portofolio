@@ -11,6 +11,10 @@
     height: 100%;
 }
 
+.nav-item:nth-child(n - 2) {
+    margin-top: auto;
+}
+
 .nav-item.active::before {
     content: "";
     position: absolute;
@@ -26,7 +30,8 @@
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.nav-item > .button{
+.nav-item > .button,
+.nav-item > .button:hover  {
     background-color: var(--bg-nav);
     color: var(--nav-item-icon-fill);
     border: none;

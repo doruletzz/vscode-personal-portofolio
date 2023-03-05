@@ -1,23 +1,28 @@
 import React from 'react';
 
-type CardComponentProps = {
+import './CardComponent.css';
+
+type CardComponentProps<T extends React.ElementType> = {
+	component?: T;
 	title?: string;
 	subtitle?: string;
 	className?: string;
 	children: React.ReactNode;
 };
 
-export const CardComponent = ({
+export const CardComponent = <T extends React.ElementType = 'div'>({
 	className,
+	component,
 	title,
 	subtitle,
 	children,
-}: CardComponentProps) => {
+}: CardComponentProps<T>) => {
+	const OverridenComponent = component || 'div';
 	return (
-		<div className={'card' + className ?? ''}>
+		<OverridenComponent className={'card ' + (className ?? '')}>
 			{title && <div className='card-title'>{title}</div>}
-			<div className='card-subtitle'>{subtitle}</div>
+			{subtitle && <div className='card-subtitle'>{subtitle}</div>}
 			<div className='card-content'>{children}</div>
-		</div>
+		</OverridenComponent>
 	);
 };

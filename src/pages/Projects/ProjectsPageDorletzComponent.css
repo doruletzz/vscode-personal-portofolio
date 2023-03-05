@@ -27,6 +27,11 @@
     font-weight: bold;
     font-size: 4rem;
     color: var(--text-page-primary);
+
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .page-container > .about-page-display > article > .subheading {

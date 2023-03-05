@@ -15,7 +15,7 @@ import {
 	PATH_PROJECTS,
 } from './constants/paths';
 import Explorer from './components/Explorer';
-import { lazy, Suspense, useEffect, useState } from 'react';
+import { lazy, MouseEvent, Suspense, useEffect, useState } from 'react';
 import { Module } from './constants/module';
 
 import { ReactComponent as HomeIcon } from './assets/home.svg';
@@ -24,29 +24,32 @@ import { ReactComponent as ProjectsIcon } from './assets/projects.svg';
 import { ReactComponent as GithubIcon } from './assets/github.svg';
 import { ReactComponent as BlogIcon } from './assets/blog.svg';
 import { ReactComponent as ContactIcon } from './assets/contact.svg';
+import { ReactComponent as ThemeIcon } from './assets/theme.svg';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
 const ProjectsPage = lazy(() => import('./pages/Projects'));
 const BlogPage = lazy(() => import('./pages/Blog'));
+const BlogPostPage = lazy(() => import('./pages/BlogPost'));
 
 // import HomePage from './pages/Home';
 // import AboutPage from './pages/About';
 // import ProjectsPage from './pages/Projects';
 // import BlogPage from './pages/Blog';
 
-import PageView from './components/PageView';
+// import PageView from './components/PageView';
+// import GithubPage from './pages/Github';
+// import ContactPage from './pages/Contact';
+
+const PageView = lazy(() => import('./components/PageView'));
+const GithubPage = lazy(() => import('./pages/Github'));
+const ContactPage = lazy(() => import('./pages/Contact'));
 
 const navItems = [
 	{
 		moduleName: Module.HOME,
 		title: 'home',
 		icon: <HomeIcon />,
-	},
-	{
-		moduleName: Module.ABOUT,
-		title: 'about',
-		icon: <AboutIcon />,
 	},
 	{
 		moduleName: Module.PROJECTS,
@@ -64,21 +67,42 @@ const navItems = [
 		icon: <GithubIcon />,
 	},
 	{
-		moduleName: Module.THEME,
-		title: 'theme',
-		onClick: () => console.log('theme'),
-		icon: <HomeIcon />,
-	},
-	{
 		moduleName: Module.CONTACT,
 		title: 'contact',
 		icon: <ContactIcon />,
 	},
+	{
+		moduleName: Module.ABOUT,
+		title: 'about',
+		icon: <AboutIcon />,
+		badge: true,
+	},
+	{
+		moduleName: Module.THEME,
+		title: 'theme',
+		onClick: () => console.log('theme'),
+		icon: <ThemeIcon />,
+	},
 ];
 
 const App = () => {
+	const [initial, setIsInitial] = useState(true);
+	const [removeTransition, setRemoveTransition] = useState(false);
+
+	const handleAppContainerClick = (e: MouseEvent<HTMLDivElement>) => {
+		setIsInitial(false);
+
+		setTimeout(() => {
+			setRemoveTransition(true);
+		}, 2000);
+	};
+
 	return (
-		<div className='app-container'>
+		<div
+			onClick={handleAppContainerClick}
+			style={removeTransition ? { transition: 'none' } : {}}
+			className={`app-container ${initial ? 'initial' : ''}`}
+		>
 			<Router>
 				<Navbar items={navItems} />
 				<Explorer />
@@ -88,12 +112,15 @@ const App = () => {
 							{/* <HomePage /> */}
 							<Route path='home/*' element={<HomePage />} />
 							<Route path='about/*' element={<AboutPage />} />
-							<Route path='blog/:id' element={<BlogPage />} />
+							<Route path='blog/:id' element={<BlogPostPage />} />
+							<Route path='blog/' element={<BlogPage />} />
 							{/* <Route path='blog/' element={<BlogPage />} /> */}
 							<Route
 								path='projects/*'
 								element={<ProjectsPage />}
 							/>
+							<Route path='github/*' element={<GithubPage />} />
+							<Route path='contact/*' element={<ContactPage />} />
 							<Route path='*' element={<Navigate to='home/' />} />
 						</Routes>
 					</Suspense>

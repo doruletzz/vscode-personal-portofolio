@@ -1,0 +1,8 @@
+.card {
+    border: 0.1rem solid var(--bg-border);
+    color: var(--text-page-secondary);
+}
+
+.card:hover {
+    background-color: var(--bg-explorer-item-hover);
+}

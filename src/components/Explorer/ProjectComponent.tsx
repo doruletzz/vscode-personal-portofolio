@@ -1,14 +1,19 @@
-import { ReactNode, useState } from 'react';
+import { MouseEvent, ReactNode, useState } from 'react';
 import Button from '../Button';
 import { ReactComponent as Github } from '../../assets/github.svg';
 import { ReactComponent as Demo } from '../../assets/external.svg';
 import { useNavigate } from 'react-router';
-import { useAppSelector } from '../../features/app/hooks';
+import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
 import { Module } from '../../constants/module';
 import Tooltip from '../Tooltip';
+import {
+	addExplorerItem,
+	focusExplorerItem,
+	removeExplorerItem,
+} from '../../features/explorer/slice';
 
 type ProjectComponentProps = {
-	icon?: ReactNode;
+	icon?: string;
 	title: string;
 	slug: string;
 	description: string;
@@ -25,18 +30,47 @@ export const ProjectComponent = ({
 	description,
 }: ProjectComponentProps) => {
 	const navigate = useNavigate();
+	const dispatch = useAppDispatch();
 	const { name: moduleName } = useAppSelector((state) => state.module);
+
+	const [pathName] = useState(
+		() => Module[moduleName].toLocaleLowerCase() + '/' + slug
+	);
+
+	const handleProjectClick = (e: MouseEvent<HTMLButtonElement>) => {
+		navigate(pathName);
+		dispatch(focusExplorerItem(pathName));
+	};
 
 	return (
 		<Button
 			id='project'
+			type='text'
 			style={{ paddingLeft: `${2 * 0.75}rem` }}
-			onClick={() =>
-				navigate(Module[moduleName].toLocaleLowerCase() + '/' + slug)
-			}
+			onClick={(e) => {
+				dispatch(
+					addExplorerItem({
+						path: pathName,
+						title: title,
+						icon:
+							typeof icon === 'string' ? (
+								<img src={icon} />
+							) : (
+								icon
+							),
+						onClick: () => handleProjectClick(e),
+						onClose: () => dispatch(removeExplorerItem(pathName)),
+					})
+				);
+				handleProjectClick(e);
+			}}
 			className='explorer-project'
 		>
-			{icon && <div className='explorer-project-icon'>{icon}</div>}
+			{icon && (
+				<div className='explorer-project-icon'>
+					<img src={icon} />
+				</div>
+			)}
 			<h6 className='explorer-project-title'>{title}</h6>
 			<p className='explorer-project-description'>{description}</p>
 			{github && (

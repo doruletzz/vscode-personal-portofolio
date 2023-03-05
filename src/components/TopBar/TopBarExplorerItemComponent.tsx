@@ -26,13 +26,19 @@ export const TopBarExplorerItemComponent = ({
 			}`}
 		>
 			<Button
+				type='text'
 				id='close'
 				className='explorer-item-close'
 				onClick={onClose}
 			>
 				<CloseIcon />
 			</Button>
-			<Button id={title} className='explorer-item' onClick={onClick}>
+			<Button
+				type='text'
+				id={title}
+				className='explorer-item'
+				onClick={onClick}
+			>
 				{icon}
 				{title}
 			</Button>

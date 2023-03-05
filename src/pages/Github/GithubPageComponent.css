@@ -1,0 +1,152 @@
+.github-page-display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.github-page-display > .repos > .tooltip-wrapper:first-child {
+    grid-row: span 3;
+    grid-column: span 1;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile{
+    height: 100%;
+}
+
+.github-page-display > .heading {
+    position: relative;
+    font-family: var(--ff-heading);
+    font-weight: bold;
+    font-size: 4rem;
+    color: var(--text-page-primary);
+    text-transform: uppercase;
+    text-decoration: none;
+
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content {
+    height: 100%;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content > a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-page-secondary);
+    text-decoration: none;
+    gap: 0.75rem;
+    padding: 2rem
+}
+
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content > a > .avatar {
+    max-height: 8rem;
+    object-fit: cover;
+
+    margin-bottom: 0.75rem;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content > a > .name {
+    font-family: var(--ff-heading);
+    text-transform: lowercase;
+    font-weight: bold;
+    font-size: 1.25rem;
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content > a > .username {
+    font-family: var(--ff-content);
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--text-page-secondary);
+    flex: 1;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content > a > .bio {
+    font-family: var(--ff-content);
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--text-page-secondary);
+
+    margin-top: 1.75rem;
+}
+
+.github-page-display > .repos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+
+    height: 100%;
+    width: 100%;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository {
+    grid-column: span 1;
+    height: 100%;
+    width: 100%;
+}
+
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2.5rem 1fr 1rem;
+    gap: 1rem;    
+
+    padding: 1.5rem;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .description,
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .title {
+        grid-column: span 2;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .title {
+    font-size: 1.25rem;
+    font-family: var(--ff-heading);
+    font-weight: bold;
+    color: var(--nav-item-icon-fill);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .title:hover{
+    color: var(--nav-item-icon-fill-active);
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .description,
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .date,
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .language {
+    font-size: 0.875rem;
+    font-family: var(--ff-content);
+    color: var(--nav-icon-fill);
+}
+
+.github-page-display > .repos > .tooltip-wrapper > .card.repository > .card-content > .date {
+    text-align: right;
+}
+
+.github-page-display > .repos > .card.fetching > .card-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.github-page-display > .repos > .card.fetching > .card-content > .progress-container {
+    max-width: 4rem;
+    max-height: 4rem;
+}

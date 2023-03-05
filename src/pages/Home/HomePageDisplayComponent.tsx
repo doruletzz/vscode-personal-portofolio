@@ -29,6 +29,7 @@ export const HomePageDisplayComponent = () => {
 				</Button>
 				<Button
 					id={CTA_SECONDARY}
+					type='text'
 					className='cta-secondary'
 					onClick={() => console.log('contact')}
 				>

@@ -53,6 +53,7 @@ export const AboutPageDisplayComponent = () => {
 						{BUTTON_PRIMARY}
 					</Button>
 					<Button
+						type='text'
 						id={BUTTON_SECONDARY}
 						className='cta-secondary'
 						onClick={() => alert('clicked')}

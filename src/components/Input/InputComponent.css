@@ -34,18 +34,22 @@
     transform: translateY(-56%);
 }
 
+.input > svg ~ input {
+    padding-left: 2.25rem;
+}
 
 .input > input {
     width: 100%;
     height: 3rem;
     border: none;
+    font-size: 1rem;
     
     font-family: var(--ff-content);
 
     background-color: var(--bg-explorer-item-hover);
     color: var(--nav-item-icon-fill);
     
-    padding: 0.5rem 1rem 0.5rem 2.25rem;
+    padding: 0.5rem 1rem 0.5rem 1rem;
 }
 
 .input > input:focus, .input > input:focus-visible {
@@ -53,3 +57,32 @@
     outline: none;
 }
 
+.input > label,
+.input:focus-within > label,
+.input.empty:focus-within > label {
+    color: var(--nav-item-icon-fill);
+    position: absolute;
+    left: 1rem;
+    top: 0.675rem;
+    transition: all 0.2s;
+    font-size: 0.75rem;
+    z-index: 9;
+} 
+
+.input.required > label::after {
+    content: "*";
+}
+
+.input.empty.required > label::after {
+    font-weight: bold;
+}
+
+.input.empty > label {
+    top: 1.25rem;
+    font-size: 1rem;
+
+} 
+
+.input > label + input {
+    margin-top: 1rem;
+}

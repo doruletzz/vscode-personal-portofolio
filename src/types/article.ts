@@ -4,4 +4,5 @@ export type Article = {
 	description: string;
 	url: string;
 	body_markdown: string;
+	published_at: string;
 };

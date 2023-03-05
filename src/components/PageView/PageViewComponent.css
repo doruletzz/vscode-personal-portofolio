@@ -19,6 +19,12 @@
     display: flex;
     flex-direction: row;
 
+    display: flex;
+    overflow: hidden visible;
+
+    gap: 1rem;
+    flex-shrink: 1;
+
     height: 100%;
 }
 

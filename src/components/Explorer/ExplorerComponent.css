@@ -6,6 +6,18 @@
     gap: 0.5rem;
 }
 
+.backdrop {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-page);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
 .explorer-container > .explorer-title {
     color: var(--text-page-secondary);
     font-size: 1rem;
@@ -27,6 +39,10 @@
 
 .explorer-container > .explorer-folder > .button {
     font-weight: bold;
+}
+
+.explorer-folder {
+    overflow: hidden;
 }
 
 .explorer-folder > .button,
@@ -70,6 +86,7 @@
 
 .explorer-folder > .button > .text,
 .explorer-folder > .explorer-file > .button > .text {
+    font-size: 1rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -89,10 +106,10 @@
 .explorer-folder > .explorer-project {
     display: grid;
     height: 5rem;
-    grid-template-columns: 2.25rem 1fr 2rem;
+    grid-template-columns: 2.5rem 1fr 2rem;
     grid-template-rows: 4fr 3fr;
 
-    column-gap: 0.5rem;
+    column-gap: 0.75rem;
     padding: 0.5rem;
     overflow: hidden;
 }
@@ -100,7 +117,7 @@
 .explorer-project > .explorer-project-icon {
     grid-column: 1;
     grid-row: span 2;
-
+    max-width: 2.25rem;
     display: flex;
 
     justify-content: center;
@@ -127,6 +144,7 @@
 
 .explorer-project > .explorer-project-description {
     font-weight: normal;
+    font-size: 1rem;
     color: var(--text-page-secondary);
 
     grid-column: 2 / 3;

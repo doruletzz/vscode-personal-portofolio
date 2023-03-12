@@ -1,4 +1,10 @@
-import React, { MouseEvent, ReactNode, useEffect, useState } from 'react';
+import React, {
+	MouseEvent,
+	ReactNode,
+	RefObject,
+	useEffect,
+	useState,
+} from 'react';
 import Button from '../Button';
 import Tooltip from '../Tooltip';
 import { Module } from '../../constants/module';
@@ -11,6 +17,8 @@ import {
 
 import './NavBarComponent.css';
 import Badge from '../Badge';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import useScrollPosition from '../../hooks/useScrollPosition';
 
 type NavItemProps = {
 	children: React.ReactNode;
@@ -64,15 +72,25 @@ interface NavItem {
 }
 
 type NavBarComponentProps = {
+	pageViewRef: RefObject<unknown>;
 	items: Array<NavItem>;
 };
 
-export const NavBarComponent = ({ items }: NavBarComponentProps) => {
+export const NavBarComponent = ({
+	pageViewRef,
+	items,
+}: NavBarComponentProps) => {
 	// const [selected, setSelected] = useState<string | null>(null);
+
+	const { width } = useWindowDimensions();
+
+	const [isScrollDown, setIsScrollDown] = useState(false);
 
 	const navigate = useNavigate();
 
-	const { name, isExpanded } = useAppSelector((state) => state.module);
+	const { name, isExpanded, containerRef } = useAppSelector(
+		(state) => state.module
+	);
 	const dispatch = useAppDispatch();
 
 	const handleClick = (
@@ -85,6 +103,25 @@ export const NavBarComponent = ({ items }: NavBarComponentProps) => {
 			navigate(Module[moduleName].toLowerCase());
 		}
 	};
+
+	const scrollPosition = useScrollPosition(containerRef);
+
+	const [localScrollPosition, setLocalScrollPosition] = useState(
+		() => scrollPosition
+	);
+
+	useEffect(() => {
+		setLocalScrollPosition((prev) => {
+			if (prev < scrollPosition) setIsScrollDown(true);
+			return scrollPosition;
+		});
+
+		console.log(scrollPosition);
+	}, [scrollPosition]);
+
+	useEffect(() => {
+		console.log(isScrollDown ? 'down' : 'up');
+	}, [isScrollDown]);
 
 	return (
 		<nav className='nav-container'>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Module } from '../../constants/module';
-import { useAppSelector } from '../../features/app/hooks';
+import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
 
 import './ExplorerComponent.css';
 import { ModuleAboutExplorerComponent } from './ModuleAboutExplorerComponent';
@@ -8,6 +8,8 @@ import { ModuleBlogExplorerComponent } from './ModuleBlogExplorerComponent';
 import { ModuleHomeExplorerComponent } from './ModuleHomeExplorerComponent';
 import { ModuleProjectsExplorer } from './ModuleProjectsExplorer';
 import { ModuleGithubExplorerComponent } from './ModuleGithubExplorerComponent';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
+import { setIsModuleExpanded } from '../../features/module/slice';
 
 type ModuleExplorerComponentProps = {
 	module: Module;
@@ -28,23 +30,45 @@ const ModuleExplorerComponent = ({ module }: ModuleExplorerComponentProps) => {
 };
 
 export const ExplorerComponent = () => {
+	const [initial, setInitial] = useState(true);
 	const NAV_WIDTH = 64;
+	const { width } = useWindowDimensions();
+	const dispatch = useAppDispatch();
 
-	const { name, isExpanded, width } = useAppSelector((state) => state.module);
+	const {
+		name,
+		isExpanded,
+		width: totalWidth,
+	} = useAppSelector((state) => state.module);
 	const [explorerWidth, setExplorerWidth] = useState<number>(
-		() => NAV_WIDTH + width
+		() => totalWidth
 	);
 
 	useEffect(() => {
-		setExplorerWidth(isExpanded ? width : 0);
+		setExplorerWidth(isExpanded ? totalWidth : 0);
 	}, [isExpanded]);
+
+	useEffect(() => {
+		if (width <= 1200 && initial) {
+			dispatch(setIsModuleExpanded(false));
+			setInitial(false);
+		}
+	}, [width]);
+
+	const handleBackdropClick = () => {
+		dispatch(setIsModuleExpanded(false));
+	};
 
 	return (
 		<>
-			{isExpanded && (
+			{
 				<div
 					className='explorer-container'
-					style={{ width: explorerWidth }}
+					style={
+						explorerWidth
+							? { width: explorerWidth }
+							: { border: 0, width: explorerWidth }
+					}
 				>
 					<h4 key={Module[name]} className='explorer-title'>
 						{Module[name] ?? 'explorer'}
@@ -52,6 +76,9 @@ export const ExplorerComponent = () => {
 
 					<ModuleExplorerComponent module={name} />
 				</div>
+			}
+			{isExpanded && width < 1200 && (
+				<div onClick={handleBackdropClick} className='backdrop' />
 			)}
 		</>
 	);

@@ -6,3 +6,7 @@
 .card:hover {
     background-color: var(--bg-explorer-item-hover);
 }
+
+.card > .card-content {
+    font-size: 1rem;
+}

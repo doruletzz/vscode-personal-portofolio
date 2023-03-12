@@ -150,3 +150,31 @@
     max-width: 4rem;
     max-height: 4rem;
 }
+
+@media screen and (max-width: 900px) {
+    .github-page-display > .repos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .github-page-display > .repos {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 1rem;
+    }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1536px) {
+    .github-page-display > .repos {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}

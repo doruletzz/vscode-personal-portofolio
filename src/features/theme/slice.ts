@@ -3,11 +3,11 @@ import { Theme } from '../../constants/theme';
 import { getThemeFromLocalStorage, setThemeToLocalStorage } from './utils';
 
 type ThemeState = {
-	type: Theme;
+	theme: Theme;
 };
 
 const initialState: ThemeState = {
-	type: getThemeFromLocalStorage(),
+	theme: getThemeFromLocalStorage(),
 };
 
 export const themeSlice = createSlice({
@@ -15,7 +15,7 @@ export const themeSlice = createSlice({
 	initialState,
 	reducers: {
 		setTheme: (state, action: PayloadAction<Theme>) => {
-			state.type = action.payload;
+			state.theme = action.payload;
 			setThemeToLocalStorage(action.payload);
 		},
 	},

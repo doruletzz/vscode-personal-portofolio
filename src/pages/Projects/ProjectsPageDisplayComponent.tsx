@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../../components/Card';
+import PanImage from '../../components/PanImage';
 import Tooltip from '../../components/Tooltip';
 import { useAppSelector } from '../../features/app/hooks';
 
@@ -12,7 +13,7 @@ export const ProjectsPageDisplayComponent = () => {
 		<div className='projects-page'>
 			<h1 className='heading'>PROJECTS I'VE DONE</h1>
 			<div className='projects'>
-				{data.map(({ title, description, slug, icon }) => (
+				{data.map(({ title, description, slug, icon, imgSrc }) => (
 					<Tooltip title={title} position='top' key={slug}>
 						<Card className='project'>
 							<div className='content'>
@@ -21,7 +22,9 @@ export const ProjectsPageDisplayComponent = () => {
 								</h6>
 								<p>{description}</p>
 							</div>
-							<img className='icon' src={icon} />
+							{imgSrc && (
+								<PanImage className='icon' src={imgSrc} />
+							)}
 						</Card>{' '}
 					</Tooltip>
 				))}

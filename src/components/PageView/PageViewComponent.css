@@ -20,9 +20,8 @@
     flex-direction: row;
 
     display: flex;
-    overflow: hidden visible;
+    overflow: hidden;
 
-    gap: 1rem;
     flex-shrink: 1;
 
     height: 100%;

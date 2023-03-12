@@ -5,6 +5,7 @@ import {
 	Routes,
 	Route,
 	Navigate,
+	useLocation,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import {
@@ -15,7 +16,15 @@ import {
 	PATH_PROJECTS,
 } from './constants/paths';
 import Explorer from './components/Explorer';
-import { lazy, MouseEvent, Suspense, useEffect, useState } from 'react';
+import {
+	createRef,
+	lazy,
+	MouseEvent,
+	RefObject,
+	Suspense,
+	useEffect,
+	useState,
+} from 'react';
 import { Module } from './constants/module';
 
 import { ReactComponent as HomeIcon } from './assets/home.svg';
@@ -25,22 +34,16 @@ import { ReactComponent as GithubIcon } from './assets/github.svg';
 import { ReactComponent as BlogIcon } from './assets/blog.svg';
 import { ReactComponent as ContactIcon } from './assets/contact.svg';
 import { ReactComponent as ThemeIcon } from './assets/theme.svg';
+import { useAppDispatch, useAppSelector } from './features/app/hooks';
+import { Theme } from './constants/theme';
+import Progress from './components/Progress';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
 const ProjectsPage = lazy(() => import('./pages/Projects'));
 const BlogPage = lazy(() => import('./pages/Blog'));
 const BlogPostPage = lazy(() => import('./pages/BlogPost'));
-
-// import HomePage from './pages/Home';
-// import AboutPage from './pages/About';
-// import ProjectsPage from './pages/Projects';
-// import BlogPage from './pages/Blog';
-
-// import PageView from './components/PageView';
-// import GithubPage from './pages/Github';
-// import ContactPage from './pages/Contact';
-
+const ThemePage = lazy(() => import('./pages/Theme'));
 const PageView = lazy(() => import('./components/PageView'));
 const GithubPage = lazy(() => import('./pages/Github'));
 const ContactPage = lazy(() => import('./pages/Contact'));
@@ -86,41 +89,56 @@ const navItems = [
 ];
 
 const App = () => {
-	const [initial, setIsInitial] = useState(true);
+	const [isInitial, setIsInitial] = useState(true);
+	const { theme } = useAppSelector((state) => state.theme);
 	const [removeTransition, setRemoveTransition] = useState(false);
+
+	const dispatch = useAppDispatch();
 
 	const handleAppContainerClick = (e: MouseEvent<HTMLDivElement>) => {
 		setIsInitial(false);
-
 		setTimeout(() => {
 			setRemoveTransition(true);
-		}, 2000);
+		}, 1000);
 	};
+
+	useEffect(() => {
+		document.documentElement.setAttribute(
+			'data-initial',
+			isInitial.toString()
+		);
+	}, [isInitial]);
+
+	useEffect(() => {
+		document.documentElement.setAttribute(
+			'data-theme',
+			theme ? Theme[theme].toLowerCase() : 'dark'
+		);
+	}, [theme]);
 
 	return (
 		<div
-			onClick={handleAppContainerClick}
+			onClick={(e) => isInitial && handleAppContainerClick(e)}
 			style={removeTransition ? { transition: 'none' } : {}}
-			className={`app-container ${initial ? 'initial' : ''}`}
+			className='app-container'
 		>
 			<Router>
 				<Navbar items={navItems} />
 				<Explorer />
 				<PageView>
-					<Suspense fallback={<div>fallback</div>}>
+					<Suspense fallback={<Progress />}>
 						<Routes>
-							{/* <HomePage /> */}
 							<Route path='home/*' element={<HomePage />} />
 							<Route path='about/*' element={<AboutPage />} />
 							<Route path='blog/:id' element={<BlogPostPage />} />
 							<Route path='blog/' element={<BlogPage />} />
-							{/* <Route path='blog/' element={<BlogPage />} /> */}
 							<Route
 								path='projects/*'
 								element={<ProjectsPage />}
 							/>
 							<Route path='github/*' element={<GithubPage />} />
 							<Route path='contact/*' element={<ContactPage />} />
+							<Route path='theme/*' element={<ThemePage />} />
 							<Route path='*' element={<Navigate to='home/' />} />
 						</Routes>
 					</Suspense>

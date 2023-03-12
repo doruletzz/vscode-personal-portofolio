@@ -1,7 +1,7 @@
 export enum Theme {
 	DARK,
 	LIGHT,
-	DRACULA,
-	SOLARIZED,
+	SOLARIZED_DARK,
+	SOLARIZED_LIGHT,
 	GRUVBOX,
 }

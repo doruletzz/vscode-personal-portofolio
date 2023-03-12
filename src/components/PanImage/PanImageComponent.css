@@ -1,0 +1,48 @@
+.pan-img {
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-size: 300%;
+
+    animation: pan 12s infinite ease-in;
+    animation-play-state: running;
+    transition: filter 0.3s ease-in-out;
+}
+
+.pan-img:hover {
+    animation-play-state: paused;
+}
+
+@keyframes pan {
+    0% {
+        background-position: 22% 12%;
+        background-size: 300%;
+    }
+    33% {
+        background-position: 10% 30%;
+        background-size: 300%;
+    }
+    33.01% {
+        background-position: 90% 90%;
+        background-size: 380%;
+    }
+    66% {
+        background-position: 42% 82%;
+        background-size: 380%;
+    }
+    66.01% {
+        background-position: 10% 0%;
+        background-size: 170%;
+    }
+    100% {
+        background-position: 70% 70%;
+        background-size: 170%;
+    }
+}
+
+@keyframs still {
+    background-position: 0% 0%;
+    background-size: 100%;
+    transition: all 5s ease-in;
+}

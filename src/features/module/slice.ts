@@ -1,9 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { RefObject } from 'react';
 import { Module } from '../../constants/module';
 
 type ModuleState = {
 	name: Module;
 	width: number;
+	containerRef?: RefObject<HTMLDivElement>;
 	path: Array<string>;
 	isExpanded: boolean;
 };

@@ -20,7 +20,7 @@
     flex-direction: row;
 
     display: flex;
-    overflow: hidden;
+    overflow: auto;
 
     flex-shrink: 1;
 

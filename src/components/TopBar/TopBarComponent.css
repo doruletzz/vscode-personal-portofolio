@@ -8,11 +8,41 @@
 }
 
 .top-bar > .button-container > .tooltip-wrapper > .menu {
-    background-color: red;
     min-width: 4rem;
     top: 100%;
     right: 0;
     margin-top: 1rem;
     position: absolute;
     z-index: 90;
+}
+
+
+.top-bar > .button-container > .tooltip-wrapper > .menu > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    background-color: var(--bg-nav);
+    color: var(--nav-item-icon-fill);
+    border: 0.075rem solid var(--bg-border);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+}
+
+.top-bar > .button-container > .tooltip-wrapper > .menu > ul > li {
+    text-align: center;
+    min-width: 14ch;
+    font-size: 0.75rem;
+}
+
+
+.top-bar > .button-container > .tooltip-wrapper > .menu > ul > li > .button {
+    background: transparent;
+    color: var(--nav-item-icon-fill);
+    font-size: 0.75rem;
+}
+
+
+.top-bar > .button-container > .tooltip-wrapper > .menu > ul > li:hover > .button {
+    color: var(--nav-item-icon-fill-active);
 }

@@ -1,7 +1,7 @@
 import React, { MouseEvent, useState } from 'react';
 import { View } from '../../constants/view';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
-import { setView } from '../../features/view/slice';
+import { setIsInitial, setView } from '../../features/view/slice';
 import Button from '../Button';
 import Tooltip from '../Tooltip';
 import { TopBarExplorerItemComponent } from './TopBarExplorerItemComponent';
@@ -14,6 +14,8 @@ import Menu from '../Menu';
 
 import './TopBarComponent.css';
 import Badge from '../Badge';
+import { useNavigate } from 'react-router';
+import { Module } from '../../constants/module';
 
 type TopBarButtonIconProps = {
 	view: View;
@@ -28,6 +30,7 @@ const TopBarButtonIcon = ({ view }: TopBarButtonIconProps) => {
 };
 
 export const TopBarComponent = () => {
+	const navigate = useNavigate();
 	const { view } = useAppSelector((state) => state.view);
 	const { focused, data } = useAppSelector((state) => state.explorer);
 	const dispatch = useAppDispatch();
@@ -74,7 +77,7 @@ export const TopBarComponent = () => {
 				/> */}
 			</div>
 			<div className='button-container'>
-				<Tooltip position='bottom' title={View[view]}>
+				<Tooltip position='bottom' title='change view (disabled)'>
 					<Button
 						disabled
 						type='text'
@@ -82,14 +85,12 @@ export const TopBarComponent = () => {
 						onClick={handleChangeViewButtonClick}
 						className='change-view'
 					>
-						<Badge vertical='bottom' badgeContent={<ClickIcon />}>
-							<TopBarButtonIcon view={view} />
-						</Badge>
+						<TopBarButtonIcon view={view} />
 					</Button>
 				</Tooltip>
 				<Tooltip
 					position='bottom'
-					title={!showSettingsMenu && 'more...'}
+					title={!showSettingsMenu && 'settings'}
 				>
 					<Button
 						type='text'
@@ -101,7 +102,39 @@ export const TopBarComponent = () => {
 					</Button>
 					{showSettingsMenu && (
 						<Menu>
-							<div>aaa</div>
+							<ul>
+								<li>Settings</li>
+								<li>
+									<Button
+										id='close tabs'
+										onClick={() => {
+											setShowSettingsMenu(
+												(prev) => !prev
+											);
+											console.log('closing all tabs');
+										}}
+									>
+										Close All Tabs
+									</Button>
+								</li>
+								<li>
+									<Button
+										id='close tabs'
+										onClick={() => {
+											setShowSettingsMenu(
+												(prev) => !prev
+											);
+											navigate(
+												Module[Module.THEME]
+													.toString()
+													.toLowerCase()
+											);
+										}}
+									>
+										Change Theme
+									</Button>
+								</li>
+							</ul>
 						</Menu>
 					)}
 				</Tooltip>

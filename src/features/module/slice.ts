@@ -5,12 +5,11 @@ import { Module } from '../../constants/module';
 type ModuleState = {
 	name: Module;
 	width: number;
-	containerRef?: RefObject<HTMLDivElement>;
 	path: Array<string>;
 	isExpanded: boolean;
 };
 
-const DEFAULT_EXPLORER_WIDTH = 256;
+const DEFAULT_EXPLORER_WIDTH = 16;
 
 const initialState: ModuleState = {
 	name: Module.HOME,

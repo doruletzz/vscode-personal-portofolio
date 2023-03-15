@@ -40,7 +40,7 @@ export const AboutPageDisplayComponent = () => {
 	return (
 		<div className='about-page-display'>
 			<article>
-				<h1 className='heading'>{TITLE}</h1>
+				<div className='heading'>{TITLE}</div>
 				<h4 className='subheading'>{SUBTITLE}</h4>
 				<p className='content'>{CONTENT_2}</p>
 				<p className='content'>{CONTENT}</p>

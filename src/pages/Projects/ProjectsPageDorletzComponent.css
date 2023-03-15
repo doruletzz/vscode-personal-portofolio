@@ -30,8 +30,6 @@
 
     white-space: nowrap;
     max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .page-container > .about-page-display > article > .subheading {

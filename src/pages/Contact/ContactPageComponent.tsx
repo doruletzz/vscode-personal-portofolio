@@ -87,8 +87,9 @@ export const ContactPageComponent = () => {
 
 	return (
 		<div className='contact-page-display'>
-			<h1 className='heading'>LET'S START WORKING</h1>
-			<h1 className='heading'>TOGETHER</h1>
+			<h1 className='heading'>
+				LET'S START WORKING <br /> TOGETHER
+			</h1>
 			<div className='contacts'>
 				<Card component='form' className='form'>
 					<Input
@@ -122,7 +123,7 @@ export const ContactPageComponent = () => {
 					<h6>MY SOCIALS</h6>
 					<ul>
 						{SOCIALS.map((social) => (
-							<li>
+							<li key={social.name}>
 								<a href={social.href} target={social.target}>
 									{social.name}
 								</a>

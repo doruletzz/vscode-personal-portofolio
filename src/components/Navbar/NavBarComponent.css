@@ -1,8 +1,6 @@
 .nav-container > ul{
     display: flex;
     flex-direction: column;
-
-    overflow: hidden;
 }
 
 .nav-container > ul > li {

@@ -74,7 +74,7 @@ export const ProjectComponent = ({
 			<h6 className='explorer-project-title'>{title}</h6>
 			<p className='explorer-project-description'>{description}</p>
 			{github && (
-				<Tooltip title='GITHUB'>
+				<Tooltip position='left' title='GITHUB'>
 					<a
 						href={github}
 						target='_blank'
@@ -85,7 +85,7 @@ export const ProjectComponent = ({
 				</Tooltip>
 			)}
 			{demo && (
-				<Tooltip title='DEMO'>
+				<Tooltip position='left' title='DEMO'>
 					<a
 						href={demo}
 						target='_blank'

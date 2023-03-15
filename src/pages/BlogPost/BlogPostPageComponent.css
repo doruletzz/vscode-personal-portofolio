@@ -49,26 +49,7 @@
     font-weight: bold;
     text-decoration: none;
 }
-
-.page-container > .blogpost-page > article > a::before,
-.page-container > .blogpost-page > article > p > a::before {
-    content: "";
-    background-color: var(--bg-border);
-    z-index: -2;
-    left: -2%;
-    position: absolute;
-    bottom: 0;
-    top: 60%;
-
-    right: 102%;
-}
-
-.page-container > .blogpost-page > article > a:hover::before,
-.page-container > .blogpost-page > article > p > a:hover::before {
-    right: -2%;
-    transition: right 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
+    
 .page-container > .blogpost-page > article > pre,
 .page-container > .blogpost-page > article > p > code {
     border-bottom: 0.2rem solid var(--bg-explorer-item-active);

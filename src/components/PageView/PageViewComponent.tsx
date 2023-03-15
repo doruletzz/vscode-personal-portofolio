@@ -15,7 +15,7 @@ type PageViewComponentProps = {
 };
 
 export const PageViewComponent = ({ children }: PageViewComponentProps) => {
-	const NAV_WIDTH = 64;
+	const NAV_WIDTH = 4;
 	const { isExpanded, width: explorerWidth } = useAppSelector(
 		(state) => state.module
 	);
@@ -37,9 +37,7 @@ export const PageViewComponent = ({ children }: PageViewComponentProps) => {
 			className='page-container'
 			style={{
 				left: `${
-					(NAV_WIDTH +
-						(isExpanded && width > 1200 ? explorerWidth : 0)) /
-					16
+					NAV_WIDTH + (isExpanded && width > 1200 ? explorerWidth : 0)
 				}rem`,
 			}}
 		>

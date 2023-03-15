@@ -7,7 +7,7 @@
 }
 
 .backdrop {
-    position: fixed;
+    position: absolute;
     z-index: 2;
     top: 0;
     bottom: 0;
@@ -75,7 +75,6 @@
 
 .explorer-folder > .button,
 .explorer-folder > .explorer-file > .button {
-    overflow: hidden;
     background-color: var(--bg-explorer);
     color: var(--text-page-secondary);
     text-align: left;
@@ -111,7 +110,6 @@
 
     column-gap: 0.75rem;
     padding: 0.5rem;
-    overflow: hidden;
 }
 
 .explorer-project > .explorer-project-icon {
@@ -120,6 +118,7 @@
     max-width: 2.25rem;
     display: flex;
 
+    overflow: hidden;
     justify-content: center;
     align-items: center;
 }

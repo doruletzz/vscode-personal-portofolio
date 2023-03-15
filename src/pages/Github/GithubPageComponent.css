@@ -25,8 +25,6 @@
 
     white-space: nowrap;
     max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .github-page-display > .repos > .tooltip-wrapper > .card.profile > .card-content {
@@ -144,14 +142,26 @@
     justify-content: center;
 }
 
-
-
 .github-page-display > .repos > .card.fetching > .card-content > .progress-container {
     max-width: 4rem;
     max-height: 4rem;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 600px) {
+    .github-page-display > .repos {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(12, 1fr);
+        gap: 1rem;
+    }
+
+    .github-page-display > .repos > .tooltip-wrapper:first-child {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
     .github-page-display > .repos {
         display: grid;
         grid-template-columns: repeat(2, 1fr);

@@ -31,7 +31,6 @@ const ModuleExplorerComponent = ({ module }: ModuleExplorerComponentProps) => {
 
 export const ExplorerComponent = () => {
 	const [initial, setInitial] = useState(true);
-	const NAV_WIDTH = 64;
 	const { width } = useWindowDimensions();
 	const dispatch = useAppDispatch();
 
@@ -51,7 +50,6 @@ export const ExplorerComponent = () => {
 	useEffect(() => {
 		if (width <= 1200 && initial) {
 			dispatch(setIsModuleExpanded(false));
-			setInitial(false);
 		}
 	}, [width]);
 
@@ -66,8 +64,8 @@ export const ExplorerComponent = () => {
 					className='explorer-container'
 					style={
 						explorerWidth
-							? { width: explorerWidth }
-							: { border: 0, width: explorerWidth }
+							? { width: `${explorerWidth}rem` }
+							: { border: 0, width: `${explorerWidth}rem` }
 					}
 				>
 					<h4 key={Module[name]} className='explorer-title'>

@@ -1,9 +1,10 @@
-.theme-page{
+.theme-page {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 12rem;
+    grid-template-rows: repeat(5, 12rem);
 
     gap: 2rem;
+    height: auto;
 
 }
 
@@ -26,4 +27,30 @@
 .theme-page > .card > .card-content > .wrapper > h6 {
     font-family: var(--ff-heading);
     font-size: 1.5rem;
+}
+
+
+@media screen and (max-width: 900px) {
+    .theme-page {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media screen and (min-width: 900px) and (max-width: 1200px) {
+    .theme-page {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+
+@media screen and (min-width: 1200px) and (max-width: 1536px) {
+    .theme-page {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
 }

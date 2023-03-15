@@ -5,10 +5,12 @@
     align-items: center;
     min-height: 100vh;
 
-    background-image: url("/src/assets/background.webp");
-    background-size:     cover;                      /* <------ */
+    background-color: #3b439e;
+
+    /* background-image: url("/src/assets/background.webp");
+    background-size:     cover;             
     background-repeat:   no-repeat;
-    background-position: center center; 
+    background-position: center center;  */
 }
 
 

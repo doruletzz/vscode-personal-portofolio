@@ -21,13 +21,9 @@
 
     white-space: nowrap;
     max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-bottom: 1rem;
-}
+    padding-bottom: 2rem;
 
-.page-container > .contact-page-display > .heading:last-of-type{
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .page-container > .contact-page-display > .contacts {
@@ -35,17 +31,22 @@
     height: 100%;
     width: 100%;
 
-    gap: 12rem;
+    gap: 1rem;
 }
 
 .page-container > .contact-page-display > .contacts > .card.form:hover {
     background-color: var(--bg-page);
 }
 
+.page-container > .contact-page-display > .contacts > .card.form {
+    flex-grow: 1;
+    max-width: 32rem;
+}
+
 .page-container > .contact-page-display > .contacts > .card.form > .card-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3rem 3rem 1fr 2rem;
+    grid-template-rows: 4rem 4rem 1fr 3rem;
     gap: 3rem;
 
     height: 100%;
@@ -62,11 +63,13 @@
 }
 
 .page-container > .contact-page-display > .contacts > .socials {
+    flex-shrink: 1;
+
     display: flex;
     flex-direction: column;
 
     gap: 1.75rem;
-    margin: 0 12rem 0rem 2rem;
+    margin: 0 9rem 0rem 2rem;
 }
 
 .page-container > .contact-page-display > .contacts > .socials > h6 {
@@ -117,4 +120,38 @@
     text-transform: uppercase;
     color: var(--text-page-secondary);
     text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+
+    .page-container > .contact-page-display > .heading {
+        font-size: 2.5rem;
+        width: 100%;
+        margin-bottom: 0.75rem;
+        padding-bottom: 1.75rem;
+    }
+
+    .page-container > .contact-page-display > .contacts > .card.form {
+        max-width: 100%;
+    } 
+    .page-container > .contact-page-display > .contacts  {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 900px) {
+
+    .page-container > .contact-page-display > .heading {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    .page-container > .contact-page-display > .contacts  {
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+
+    .page-container > .contact-page-display > .contacts > .card.form {
+        max-width: 100%;
+    } 
 }

@@ -34,9 +34,12 @@ import { ReactComponent as GithubIcon } from './assets/github.svg';
 import { ReactComponent as BlogIcon } from './assets/blog.svg';
 import { ReactComponent as ContactIcon } from './assets/contact.svg';
 import { ReactComponent as ThemeIcon } from './assets/theme.svg';
+import { ReactComponent as TopBar } from './assets/topbar.svg';
 import { useAppDispatch, useAppSelector } from './features/app/hooks';
 import { Theme } from './constants/theme';
 import Progress from './components/Progress';
+import { setIsModuleExpanded } from './features/module/slice';
+import useWindowDimensions from './hooks/useWindowDimensions';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -107,6 +110,7 @@ const App = () => {
 			'data-initial',
 			isInitial.toString()
 		);
+		if (window.innerWidth < 1200) dispatch(setIsModuleExpanded(false));
 	}, [isInitial]);
 
 	useEffect(() => {
@@ -117,34 +121,55 @@ const App = () => {
 	}, [theme]);
 
 	return (
-		<div
-			onClick={(e) => isInitial && handleAppContainerClick(e)}
-			style={removeTransition ? { transition: 'none' } : {}}
-			className='app-container'
-		>
-			<Router>
-				<Navbar items={navItems} />
-				<Explorer />
-				<PageView>
-					<Suspense fallback={<Progress />}>
-						<Routes>
-							<Route path='home/*' element={<HomePage />} />
-							<Route path='about/*' element={<AboutPage />} />
-							<Route path='blog/:id' element={<BlogPostPage />} />
-							<Route path='blog/' element={<BlogPage />} />
-							<Route
-								path='projects/*'
-								element={<ProjectsPage />}
-							/>
-							<Route path='github/*' element={<GithubPage />} />
-							<Route path='contact/*' element={<ContactPage />} />
-							<Route path='theme/*' element={<ThemePage />} />
-							<Route path='*' element={<Navigate to='home/' />} />
-						</Routes>
-					</Suspense>
-				</PageView>
-			</Router>
-		</div>
+		<>
+			{isInitial && (
+				<ul className='windows-bar'>
+					<li />
+					<li />
+					<li />
+				</ul>
+			)}
+			<div
+				onClick={(e) => isInitial && handleAppContainerClick(e)}
+				style={removeTransition ? { transition: 'none' } : {}}
+				className='app-container'
+			>
+				<Router>
+					<Navbar items={navItems} />
+					<Explorer />
+					<PageView>
+						<Suspense fallback={<Progress />}>
+							<Routes>
+								<Route path='home/*' element={<HomePage />} />
+								<Route path='about/*' element={<AboutPage />} />
+								<Route
+									path='blog/:id'
+									element={<BlogPostPage />}
+								/>
+								<Route path='blog/' element={<BlogPage />} />
+								<Route
+									path='projects/*'
+									element={<ProjectsPage />}
+								/>
+								<Route
+									path='github/*'
+									element={<GithubPage />}
+								/>
+								<Route
+									path='contact/*'
+									element={<ContactPage />}
+								/>
+								<Route path='theme/*' element={<ThemePage />} />
+								<Route
+									path='*'
+									element={<Navigate to='home/' />}
+								/>
+							</Routes>
+						</Suspense>
+					</PageView>
+				</Router>
+			</div>
+		</>
 	);
 };
 

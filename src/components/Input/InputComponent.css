@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     background-color: var(--bg-explorer-item-hover);
+    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     overflow-x: hidden;
 }
@@ -50,6 +51,7 @@
 
     background-color: var(--bg-explorer-item-hover);
     color: var(--nav-item-icon-fill);
+    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     
     padding: 0.5rem 1rem 0.5rem 1rem;
 }

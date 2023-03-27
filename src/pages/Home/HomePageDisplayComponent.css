@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 100%;
 
     gap: 1rem;
     padding: 2rem 6rem;
@@ -64,12 +63,11 @@
 
 .page-container > .home-page-display > .sub-heading {
     z-index: 3;
-    max-width: 62ch;
+    max-width: 52ch;
+    font-size: 1.25rem;
     line-height: 1.25;
     font-family: var(--ff-content);
-    letter-spacing: 0.2rem;
     color: var(--text-page-secondary);
-    text-transform: uppercase;
 }
 
 .page-container > .home-page-display > .cta-buttons {

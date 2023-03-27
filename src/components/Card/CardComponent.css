@@ -1,10 +1,12 @@
 .card {
     border: 0.1rem solid var(--bg-border);
     color: var(--text-page-secondary);
+    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .card:hover {
     background-color: var(--bg-explorer-item-hover);
+
 }
 
 .card > .card-content {

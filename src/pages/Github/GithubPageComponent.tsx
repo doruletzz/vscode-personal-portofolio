@@ -59,7 +59,7 @@ export const GithubPageComponent = () => {
 	return (
 		<div className='github-page-display'>
 			<>
-				<h1 className='heading'>i've recently coded</h1>
+				<h1 className='heading'>recently worked on</h1>
 				<div className='repos'>
 					<>
 						{githubProfileData ? (

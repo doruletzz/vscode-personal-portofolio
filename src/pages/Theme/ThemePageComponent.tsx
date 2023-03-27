@@ -32,13 +32,16 @@ export const ThemePageComponent = () => {
 	]);
 	return (
 		<div className='theme-page'>
-			{themes.map((theme) => (
-				<Card key={theme.title}>
-					<div className='wrapper' onClick={theme.onClick}>
-						<h6>{theme.title}</h6>
-					</div>
-				</Card>
-			))}
+			<h1 className='heading'>CHOOSE YOUR THEME</h1>
+			<div className='themes'>
+				{themes.map((theme) => (
+					<Card key={theme.title}>
+						<div className='wrapper' onClick={theme.onClick}>
+							<div>{theme.title}</div>
+						</div>
+					</Card>
+				))}
+			</div>
 		</div>
 	);
 };

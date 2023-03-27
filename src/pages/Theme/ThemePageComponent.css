@@ -1,21 +1,41 @@
 .theme-page {
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-start;
+    gap: 1rem
+}
+
+.theme-page > .themes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: repeat(5, 12rem);
+    width: 100%;
 
     gap: 2rem;
     height: auto;
 
 }
 
-.theme-page > .card {
+.theme-page > h1{
+    position: relative;
+    font-family: var(--ff-heading);
+    font-weight: bold;
+    font-size: 4rem;
+    color: var(--text-page-primary);
+
+    white-space: nowrap;
+    margin-bottom: 2rem;
+}
+
+.theme-page > .themes > .card {
     cursor: pointer;
     min-width: 12rem;
     max-height: 12rem;
 }
 
-.theme-page > .card > .card-content > .wrapper,
-.theme-page > .card > .card-content {
+.theme-page > .themes > .card > .card-content > .wrapper,
+.theme-page > .themes > .card > .card-content {
     width: 100%;
     height: 100%;
 
@@ -24,14 +44,14 @@
     place-items: center;
 }
 
-.theme-page > .card > .card-content > .wrapper > h6 {
+.theme-page > .themes > .card > .card-content > .wrapper > h6 {
     font-family: var(--ff-heading);
     font-size: 1.5rem;
 }
 
 
 @media screen and (max-width: 900px) {
-    .theme-page {
+    .theme-page > .themes {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         gap: 1rem;
@@ -39,7 +59,7 @@
 }
 
 @media screen and (min-width: 900px) and (max-width: 1200px) {
-    .theme-page {
+    .theme-page > .themes {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
@@ -48,7 +68,7 @@
 
 
 @media screen and (min-width: 1200px) and (max-width: 1536px) {
-    .theme-page {
+    .theme-page > .themes {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;

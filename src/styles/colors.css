@@ -1,4 +1,4 @@
-html[data-theme='gruvbox'] {
+html {
     --text-page-primary: #f3f3f3;
     --text-page-secondary: #c9cace;
     --text-page-tertiary: rgba(56,58,61,0.35);
@@ -14,8 +14,13 @@ html[data-theme='gruvbox'] {
 
     --nav-item-icon-fill: #b7b7b7;
     --nav-item-icon-fill-active: #f3f3f3;
+
+    --highlight-color-primary: #9f86e0;
 }
 
+html[data-accent="blue"] {
+    --highlight-color-primary: #709acd;
+}
 
 html[data-theme='dark'] {
     --text-page-primary: #d4d4d4;
@@ -32,7 +37,7 @@ html[data-theme='dark'] {
     --bg-explorer-item-active: #37373d;
 
     --nav-item-icon-fill: #848484;
-    --nav-item-icon-fill-active: #e5e5e5    ;
+    --nav-item-icon-fill-active: #e5e5e5;
 }
 
 

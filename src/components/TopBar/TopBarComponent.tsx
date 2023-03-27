@@ -16,6 +16,7 @@ import './TopBarComponent.css';
 import Badge from '../Badge';
 import { useNavigate } from 'react-router';
 import { Module } from '../../constants/module';
+import { setExplorerItems } from '../../features/explorer/slice';
 
 type TopBarButtonIconProps = {
 	view: View;
@@ -42,19 +43,21 @@ export const TopBarComponent = () => {
 	};
 
 	return (
-		<div className='top-bar'>
-			<div className='explorer-items-container'>
-				{data.map((item) => (
-					<TopBarExplorerItem
-						key={item.path}
-						active={item.path === focused?.path}
-						title={item.title}
-						icon={item.icon}
-						onClick={item.onClick}
-						onClose={item.onClose}
-					/>
-				))}
-				{/* <TopBarExplorerItem
+		<>
+			<div className='top-bar-anchor' />
+			<div className={`top-bar ${data.length ? '' : 'empty'}`}>
+				<div className='explorer-items-container'>
+					{data.map((item) => (
+						<TopBarExplorerItem
+							key={item.path}
+							active={item.path === focused?.path}
+							title={item.title}
+							icon={item.icon}
+							onClick={item.onClick}
+							onClose={item.onClose}
+						/>
+					))}
+					{/* <TopBarExplorerItem
 					active
 					title={'index.html'}
 					icon={<CodeIcon />}
@@ -75,70 +78,72 @@ export const TopBarComponent = () => {
 						console.log('hw');
 					}}
 				/> */}
-			</div>
-			<div className='button-container'>
-				<Tooltip position='bottom' title='change view (disabled)'>
-					<Button
-						disabled
-						type='text'
-						id='change view'
-						onClick={handleChangeViewButtonClick}
-						className='change-view'
+				</div>
+				<div className='button-container'>
+					{/* <Tooltip position='bottom' title='change view (disabled)'>
+						<Button
+							disabled
+							type='text'
+							id='change view'
+							onClick={handleChangeViewButtonClick}
+							className='change-view'
+						>
+							<TopBarButtonIcon view={view} />
+						</Button>
+					</Tooltip> */}
+					<Tooltip
+						position='bottom'
+						title={!showSettingsMenu && 'settings'}
 					>
-						<TopBarButtonIcon view={view} />
-					</Button>
-				</Tooltip>
-				<Tooltip
-					position='bottom'
-					title={!showSettingsMenu && 'settings'}
-				>
-					<Button
-						type='text'
-						id='settings'
-						onClick={() => setShowSettingsMenu((prev) => !prev)}
-						className='settings'
-					>
-						<SettingsIcon />
-					</Button>
-					{showSettingsMenu && (
-						<Menu>
-							<ul>
-								<li>Settings</li>
-								<li>
-									<Button
-										id='close tabs'
-										onClick={() => {
-											setShowSettingsMenu(
-												(prev) => !prev
-											);
-											console.log('closing all tabs');
-										}}
-									>
-										Close All Tabs
-									</Button>
-								</li>
-								<li>
-									<Button
-										id='close tabs'
-										onClick={() => {
-											setShowSettingsMenu(
-												(prev) => !prev
-											);
-											navigate(
-												Module[Module.THEME]
-													.toString()
-													.toLowerCase()
-											);
-										}}
-									>
-										Change Theme
-									</Button>
-								</li>
-							</ul>
-						</Menu>
-					)}
-				</Tooltip>
+						<Button
+							type='text'
+							id='settings'
+							onClick={() => setShowSettingsMenu((prev) => !prev)}
+							className='settings'
+						>
+							<SettingsIcon />
+						</Button>
+						{showSettingsMenu && (
+							<Menu>
+								<ul>
+									<li>Settings</li>
+									<li>
+										<Button
+											id='close tabs'
+											onClick={() => {
+												setShowSettingsMenu(
+													(prev) => !prev
+												);
+												dispatch(setExplorerItems([]));
+												console.log('closing all tabs');
+											}}
+										>
+											Close All Tabs
+										</Button>
+									</li>
+									<li>
+										<Button
+											id='close tabs'
+											onClick={() => {
+												setShowSettingsMenu(
+													(prev) => !prev
+												);
+												navigate(
+													Module[Module.THEME]
+														.toString()
+														.toLowerCase()
+												);
+											}}
+										>
+											Change Theme
+										</Button>
+									</li>
+								</ul>
+							</Menu>
+						)}
+					</Tooltip>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };

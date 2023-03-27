@@ -1,0 +1,66 @@
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--bg-explorer);
+}
+
+.bottom-bar > ul {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--nav-item-icon-fill);
+}
+
+.bottom-bar > ul > li:hover,
+.bottom-bar > ul > .tooltip-wrapper > li:hover {
+    background-color: var(--bg-explorer-item-hover);
+    color: var(--nav-item-icon-fill-active);
+}
+
+.bottom-bar > ul > li,
+.bottom-bar > ul > .tooltip-wrapper > li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0 0.75rem;
+    font-family: var(--ff-heading);
+    font-size: 0.675rem;
+}
+
+.bottom-bar > ul > li > svg,
+.bottom-bar > ul > .tooltip-wrapper > li > svg {
+    fill: var(--nav-item-icon-fill);
+    padding: 0 0.125rem;
+    height: 1rem;
+}
+
+.bottom-bar > ul > li > ul,
+.bottom-bar > ul > .tooltip-wrapper > li > ul{
+    display: flex;
+    gap: 0.75rem;
+}
+
+.bottom-bar > ul > li > ul > li,
+.bottom-bar > ul > .tooltip-wrapper > li > ul > li {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-family: var(--ff-heading);
+    font-size: 0.675rem;
+}
+
+
+.bottom-bar > ul > li > ul > li > svg,
+.bottom-bar > ul > .tooltip-wrapper > li > ul > li > svg {
+    fill: var(--nav-item-icon-fill);
+    padding: 0 0.125rem;
+    height: 1.25rem;
+}
+
+.bottom-bar > ul:first-child > li:first-child {
+    background-color: var(--highlight-color-primary);
+    color: var(--nav-item-icon-fill-active);
+    font-weight: bold;
+    font-size: 0.675rem;
+}

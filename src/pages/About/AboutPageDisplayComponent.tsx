@@ -6,23 +6,24 @@ import './AboutPageDisplayComponent.css';
 export const AboutPageDisplayComponent = () => {
 	const TITLE = 'ABOUT ME';
 	const SUBTITLE = "i'm dorletz, a developer building stuff for the web.";
-	const CONTENT = `Currently on a mission of combining development with design.
-			I strongly believe in putting functionality first, whilst maintaining the upmost user experience.
-			I'm Always looking for new projects, so make sure to contact me if you'd like us to work together.
+
+	const CONTENT_3 = `If you're interested in exploring how we can work together, please don't hesitate to contact me. I am excited to learn about new opportunities and experiences that will allow me to continue growing and developing my skills.
 		`;
 
-	const CONTENT_2 = `Your average gym addict, with a love for drawing.
-			Always open to new oportunities & experiences,
-			from starting my own blog to trying to cook yet another recipe  
-			Currently located in Cluj-Napoca, Romania. 
-			If you'd like to talk make sure to contact me!
+	const CONTENT_4 = `As a programmer, I am proficient in a wide range of programming tools, frameworks, and languages. My extensive knowledge and experience enable me to develop robust and scalable software solutions that meet the needs of diverse clients and end-users.
 		`;
 
-	const CONTENT_3 = `Your average gym addict, with a love for drawing.
-			Always open to new oportunities & experiences,
-			from starting my own blog to trying to cook yet another recipe  
-			Currently located in Cluj-Napoca, Romania. 
-			If you'd like to talk make sure to contact me!
+	const CONTENT_5 = `Furthermore, I stay up-to-date with emerging technologies and trends in the programming industry to ensure that my skills and knowledge remain relevant and adaptable to changing requirements.
+	`;
+
+	const CONTENT = `A versatile individual based in Cluj-Napoca, Romania, with a passion for both fitness
+			and artistic expression. With a keen eye for design and a love for problem-solving, I am constantly exploring
+			ways to combine my interests in development and design.
+		`;
+
+	const CONTENT_2 = `My expertise lies in creating functional and visually appealing web solutions that
+			prioritize the user experience. As a firm believer in the power of collaboration, I am always 
+			eager to take on new projects and work with others to achieve shared goals.
 		`;
 
 	const SUBTITLE_2 = 'tools that i use every single day.';
@@ -42,8 +43,19 @@ export const AboutPageDisplayComponent = () => {
 			<article>
 				<div className='heading'>{TITLE}</div>
 				<h4 className='subheading'>{SUBTITLE}</h4>
-				<p className='content'>{CONTENT_2}</p>
 				<p className='content'>{CONTENT}</p>
+				<p className='content'>{CONTENT_2}</p>
+				<p className='content'>{CONTENT_3}</p>
+				<br />
+				<h4 className='subheading'>{SUBTITLE_2}</h4>
+				<p className='content'>{CONTENT_4}</p>
+				<p className='content'>{CONTENT_5}</p>
+				<ul>
+					<li>Frontend: {FRONTEND}</li>
+					<li>Backend: {BACKEND}</li>
+					<li>Other: {OTHER}</li>
+				</ul>
+				<br />
 				<div className='cta-buttons'>
 					<Button
 						id={BUTTON_PRIMARY}
@@ -61,24 +73,6 @@ export const AboutPageDisplayComponent = () => {
 						{BUTTON_SECONDARY}
 					</Button>
 				</div>
-				<br />
-				<h4 className='subheading'>{SUBTITLE_2}</h4>
-				<p className='content'>{CONTENT_3}</p>
-				<ul>
-					<li>Frontend: {FRONTEND}</li>
-					<li>Backend: {BACKEND}</li>
-					<li>Other: {OTHER}</li>
-				</ul>
-				<div className='cta-buttons'>
-					<Button
-						id={BUTTON_PRIMARY}
-						className='cta-primary'
-						onClick={() => alert('clicked')}
-					>
-						{BUTTON_PRIMARY}
-					</Button>
-				</div>
-				<br />
 			</article>
 		</div>
 	);

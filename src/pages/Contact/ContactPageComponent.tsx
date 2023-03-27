@@ -87,9 +87,7 @@ export const ContactPageComponent = () => {
 
 	return (
 		<div className='contact-page-display'>
-			<h1 className='heading'>
-				LET'S START WORKING <br /> TOGETHER
-			</h1>
+			<h1 className='heading'>GET IN TOUCH</h1>
 			<div className='contacts'>
 				<Card component='form' className='form'>
 					<Input

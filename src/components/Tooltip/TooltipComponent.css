@@ -3,6 +3,9 @@
 }
 
 .tooltip-wrapper:hover > .tooltip {
+    animation-name: popUp;
+    animation-duration: 0.7s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     display: block;
 }
 
@@ -20,6 +23,7 @@
     padding: 0.5rem;
 
     text-align: center;
+    white-space: nowrap;
 
     display: none;
 }
@@ -50,4 +54,13 @@
     transform: translateX(50%);
     right: 50%;
     margin-bottom: 0.75rem;
+}
+
+@keyframes popUp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -3,6 +3,24 @@
     gap: 0.5rem;
 }
 
+.page-container > .top-bar.empty {
+    top: -3rem;
+}
+
+.top-bar-anchor {
+    position: absolute;
+    z-index: 4;
+    height: 4rem;
+    width: 100%;
+    top: 0;
+}
+
+
+.top-bar-anchor:hover ~ .top-bar.empty,
+.top-bar.empty:hover {
+    top: 0;
+}
+
 .top-bar > .button-container > .tooltip-wrapper {
     position: relative;
 }

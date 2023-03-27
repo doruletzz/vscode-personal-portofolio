@@ -9,7 +9,7 @@
     width: 75vw;
     height: 2.675rem;
 
-    background-color: #2D99FC;
+    background-color: var(--highlight-color-primary);
 
     display: flex;
     gap: 2rem;
@@ -20,21 +20,29 @@
 }
 
 #root > .windows-bar > li {
-    width: 0.675rem;
-    height: 0.675rem;
+    width: 0.75rem;
+    height: 0.75rem;
 
-    border: 0.1rem solid white;
+    border: 0.025rem solid #333333;
+    border-radius: 1rem;
 }
 
-#root > .windows-bar > li:last-child {
-    background-color: #FC5F2D;
+#root > .windows-bar > li:nth-child(1) {
+    background-color: #63cd6d;
+}
+
+#root > .windows-bar > li:nth-child(2) {
+    background-color: #c6ca5c;
+}
+
+#root > .windows-bar > li:nth-child(3) {
+    background-color: #da6e4d;
 }
 
 .app-container {
     
     font-family: var(--ff-content);
     background-color: var(--bg-page);
-    display: flex;
     width: 100vw;
     height: 100vh;
     position: relative;
@@ -46,7 +54,7 @@
 }
 
 
-html[data-initial='true']  > body > #root > .app-container {
+html[data-initial='true'] > body > #root > .app-container {
     width: 75vw;
     height: 75vh;
     position: relative;
@@ -58,7 +66,7 @@ html[data-initial='true']  > body > #root > .app-container {
 }
 
 html[data-initial='true'] > body > #root:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     filter: drop-shadow(0px 37.5px 25px rgba(0, 0, 0, 0.15));
 }
 
@@ -72,8 +80,10 @@ html[data-initial='true'] > body > #root:hover {
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
-    min-height: 100%;
+    min-height: calc(100% - 1.75rem);
     width: 4rem;
+
+    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .app-container > .explorer-container {
@@ -81,26 +91,38 @@ html[data-initial='true'] > body > #root:hover {
     background-color: var(--bg-explorer);
     position: absolute;
     left: 4rem;
-    height: 100%;
+    min-height: calc(100% - 1.75rem);
     border-right: 0.075rem solid var(--bg-border);
-    transition: width 1s cubic-bezier(0.075, 0.82, 0.165, 1); 
+    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+                width 1s cubic-bezier(0.075, 0.82, 0.165, 1); 
 }
 
 .app-container > .page-container {
     z-index: 1;
     background-color: var(--bg-page);
-    height: 100%;
+    height: calc(100% - 1.75rem);
     position: absolute;
     right: 0;
-    transition: left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+                left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
     max-height: 100%;
 
     overflow: hidden;
-
 }
 
-.app-container > .page-container > *:nth-child(2) {
-    animation: pageSlideDown 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+.app-container > .bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1.75rem;
+
+    border-top: 0.075rem solid var(--bg-border);
+    z-index: 6;
+}
+
+.app-container > .page-container > *:nth-child(3) {
+    animation: pageSlideDown 1.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .app-container > .page-container > .loading {
@@ -120,9 +142,25 @@ html[data-initial='true'] > body > #root:hover {
 
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
-    height: 100%;
+    height: calc(100% - 3rem);
 
     padding: 2rem 4rem;
+    margin-top: 3rem;
+
+    transition: height 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),
+                margin 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.page-container > .top-bar.empty ~ *:last-child {
+    height: 100%;
+    margin-top: 0;
+}
+
+
+.page-container > .top-bar-anchor:hover + .top-bar.empty ~ *:last-child,
+.page-container > .top-bar.empty:hover ~ *:last-child {
+    height: calc(100% - 3rem);
+    margin-top: 3rem;
 }
 
 .page-container > *:last-child::-webkit-scrollbar {

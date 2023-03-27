@@ -6,6 +6,7 @@ interface TooltipComponentProps<T extends React.ElementType> {
 	component?: T;
 	title?: string | boolean;
 	position?: 'left' | 'right' | 'top' | 'bottom';
+
 	children: React.ReactNode;
 }
 

@@ -1,9 +1,7 @@
-.page-container {
-    padding-top: 3rem;
-}
 
 .page-container > .top-bar {
     position: absolute;
+    z-index: 5;
     height: 3rem;
     top: 0;
 
@@ -13,6 +11,8 @@
 
     border-bottom: 0.1rem solid var(--bg-border);
     padding-right: 1rem;
+
+    transition: top 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .page-container > .top-bar > .explorer-items-container {

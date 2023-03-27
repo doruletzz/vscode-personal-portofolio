@@ -22,30 +22,37 @@ export const BlogPageComponent = () => {
 
 	return (
 		<div className='blog-page'>
-			{articles.length && !isFetchingArticles
-				? articles.map((article) => (
-						<Card className='article' key={article.id}>
-							<h6 onClick={() => navigate(article.id.toString())}>
-								{article.title}
-							</h6>
-							<p>{article.description}</p>
-							<div>
-								<a href={article.url} target='_blank'>
-									<ExternalIcon />
-								</a>
-								<p>
-									{new Date(
-										article.published_at
-									).toLocaleDateString()}
-								</p>
-							</div>
-						</Card>
-				  ))
-				: new Array(12).fill(0).map((_, i) => (
-						<Card className='fetching' key={i}>
-							<Progress />
-						</Card>
-				  ))}
+			<h1 className='heading'>THOUGHTS & MORE</h1>
+			<div className='articles'>
+				{articles.length && !isFetchingArticles
+					? articles.map((article) => (
+							<Card className='article' key={article.id}>
+								<h6
+									onClick={() =>
+										navigate(article.id.toString())
+									}
+								>
+									{article.title}
+								</h6>
+								<p>{article.description}</p>
+								<div>
+									<a href={article.url} target='_blank'>
+										<ExternalIcon />
+									</a>
+									<p>
+										{new Date(
+											article.published_at
+										).toLocaleDateString()}
+									</p>
+								</div>
+							</Card>
+					  ))
+					: new Array(12).fill(0).map((_, i) => (
+							<Card className='fetching' key={i}>
+								<Progress />
+							</Card>
+					  ))}
+			</div>
 		</div>
 	);
 };

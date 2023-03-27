@@ -42,12 +42,22 @@ export const explorerSlice = createSlice({
 			state.focused =
 				state.data.find((e) => e.path === action.payload) ?? null;
 		},
+		setExplorerItems: (
+			state,
+			action: PayloadAction<Array<ExplorerItem>>
+		) => {
+			state.data = action.payload;
+		},
 	},
 });
 
 export const { actions, reducer } = explorerSlice;
 
-export const { addExplorerItem, removeExplorerItem, focusExplorerItem } =
-	actions;
+export const {
+	addExplorerItem,
+	removeExplorerItem,
+	focusExplorerItem,
+	setExplorerItems,
+} = actions;
 
 export default reducer;

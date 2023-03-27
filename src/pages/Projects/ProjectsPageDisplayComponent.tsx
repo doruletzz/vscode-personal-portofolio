@@ -11,7 +11,7 @@ export const ProjectsPageDisplayComponent = () => {
 	const { data } = useAppSelector((state) => state.projects);
 	return (
 		<div className='projects-page'>
-			<h1 className='heading'>PROJECTS I'VE DONE</h1>
+			<div className='heading'>PERSONAL PROJECTS</div>
 			<div className='projects'>
 				{data.map(({ title, description, slug, icon, imgSrc }) => (
 					<Tooltip title={title} position='top' key={slug}>

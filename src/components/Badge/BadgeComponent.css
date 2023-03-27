@@ -30,7 +30,7 @@
 
 
 .badge-container > .badge.alert {
-    background-color: blueviolet;
+    background-color: var(--highlight-color-primary);
    
 }
 

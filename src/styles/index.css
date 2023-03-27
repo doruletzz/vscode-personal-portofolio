@@ -4,17 +4,26 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
 
-    background-color: #3b439e;
+:root::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom:0;
+    right: 0;
+    left: 0;
 
-    /* background-image: url("/src/assets/background.webp");
+    background-image: url("/src/assets/background.webp");
     background-size:     cover;             
     background-repeat:   no-repeat;
-    background-position: center center;  */
+    background-position: center center; 
+
+    filter: hue-rotate(149deg);
 }
 
 
 html[data-initial='true'] {
-    font-size: 9px;
+    font-size: 11px;
 }
 

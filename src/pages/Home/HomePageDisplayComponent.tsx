@@ -1,17 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import Button from '../../components/Button';
 import { useAppSelector } from '../../features/app/hooks';
 
 import './HomePageDisplayComponent.css';
 
 export const HomePageDisplayComponent = () => {
+	const navigate = useNavigate();
+
 	const HEADING = 'DOR-LETZ,';
-	const SUB_HEADING_1 = "Hello World! i'm";
+	const SUB_HEADING_1 = "Hello world! I'm";
 	const SUB_HEADING_2 =
-		'a frontend developer based in cluj-napoca, romania with the mission of creating awesome stuff for the web ';
+		'a frontend developer based in Cluj-Napoca, Romania, with the mission of crafting exceptional stuff for the web';
 
 	const CTA_PRIMARY = 'GET IN TOUCH';
-	const CTA_SECONDARY = 'CHECK OUT MY PROJECTS';
+	const CTA_SECONDARY = 'MY PROJECTS';
 
 	return (
 		<div className='home-page-display'>
@@ -23,7 +26,7 @@ export const HomePageDisplayComponent = () => {
 				<Button
 					id={CTA_PRIMARY}
 					className='cta-primary'
-					onClick={() => console.log('contact')}
+					onClick={() => navigate('/contact')}
 				>
 					{CTA_PRIMARY}
 				</Button>
@@ -31,7 +34,7 @@ export const HomePageDisplayComponent = () => {
 					id={CTA_SECONDARY}
 					type='text'
 					className='cta-secondary'
-					onClick={() => console.log('contact')}
+					onClick={() => navigate('/projects')}
 				>
 					{CTA_SECONDARY}
 				</Button>

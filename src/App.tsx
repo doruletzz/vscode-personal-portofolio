@@ -41,6 +41,9 @@ import Progress from './components/Progress';
 import { setIsModuleExpanded } from './features/module/slice';
 import useWindowDimensions from './hooks/useWindowDimensions';
 
+import BottomBar from './components/BottomBar';
+import { Accent } from './constants/accent';
+
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
 const ProjectsPage = lazy(() => import('./pages/Projects'));
@@ -93,7 +96,7 @@ const navItems = [
 
 const App = () => {
 	const [isInitial, setIsInitial] = useState(true);
-	const { theme } = useAppSelector((state) => state.theme);
+	const { theme, accent } = useAppSelector((state) => state.theme);
 	const [removeTransition, setRemoveTransition] = useState(false);
 
 	const dispatch = useAppDispatch();
@@ -119,6 +122,13 @@ const App = () => {
 			theme ? Theme[theme].toLowerCase() : 'dark'
 		);
 	}, [theme]);
+
+	useEffect(() => {
+		document.documentElement.setAttribute(
+			'data-accent',
+			accent ? Accent[accent].toLowerCase() : 'blue'
+		);
+	}, [accent]);
 
 	return (
 		<>
@@ -167,6 +177,7 @@ const App = () => {
 							</Routes>
 						</Suspense>
 					</PageView>
+					<BottomBar />
 				</Router>
 			</div>
 		</>

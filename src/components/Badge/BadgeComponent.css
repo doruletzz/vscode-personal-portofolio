@@ -5,13 +5,16 @@
 .badge-container > .badge {
     position: absolute;
 
-    border-radius: 100%;
+    border-radius: 2rem;
+    pointer-events: none;
 
-    min-height: 25%;
-    min-width: 25%;
-    padding: 0.25rem;
-    color: var(--text-page-secondary);
+    min-height: 5%;
+    min-width: 5%;
+    padding: 0.5rem;
+    color: var(--nav-item-icon-fill-active);
+    white-space: nowrap;
 
+    font-family: var(--ff-heading);
     font-size: 0.625rem;
     display: flex;
     justify-content: center;
@@ -22,7 +25,7 @@
 }
 
 .badge-container > .badge > svg {
-    fill: var(--text-page-secondary);
+    fill: var(--nav-item-icon-fill-active);
 
     width: 0.5rem;
     height: 0.5rem;

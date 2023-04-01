@@ -8,6 +8,12 @@ import Button from '../../components/Button';
 import Card from '../../components/Card';
 import Input from '../../components/Input';
 import TextArea from '../../components/TextArea';
+import emailjs from '@emailjs/browser';
+import {
+	EMAILJS_PUBLIC_KEY,
+	EMAILJS_SERVICE_ID,
+	EMAILJS_TEMPLATE_ID,
+} from '../../constants/email';
 
 import './ContactPageComponent.css';
 
@@ -57,7 +63,17 @@ export const ContactPageComponent = () => {
 		const messageError = validateMessage(message);
 		if (messageError) errors.push(messageError);
 
-		if (errors.length) setError(errors.join(' '));
+		if (errors.length) {
+			setError(errors.join(' '));
+			return;
+		}
+
+		emailjs.send(
+			EMAILJS_SERVICE_ID,
+			EMAILJS_TEMPLATE_ID,
+			{ from_name: name, from_email: email, message: message },
+			EMAILJS_PUBLIC_KEY
+		);
 	};
 
 	useEffect(() => {

@@ -2,18 +2,11 @@
 
 Personal Portofolio Page in React
 
-PAGE TODOs:
+Create an .env file with [email.js](www.emailjs.com/) data for the contact form
 
--   [ ] Home Page (Hero Page)
--   [ ] About Page (maybe remove (?))
--   [ ] Contact Page
--   [ ] Projects Page
--   [ ] Blog Page
--   [ ] Theme Page
-
-FUNCTIONALITY TODOs:
-
--   [ ] Display / Code Page transition
--   [ ] Code Page Routing
--   [ ] Mobile View (also design (?))
--   [ ] Top Bar Explorer Stack (!)
+```
+    //.env
+    VITE_EMAILJS_SERVICE_ID=...
+    VITE_EMAILJS_TEMPLATE_ID=...
+    VITE_EMAILJS_PUBLIC_KEY=...
+```

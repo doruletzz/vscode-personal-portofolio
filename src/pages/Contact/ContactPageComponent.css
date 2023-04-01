@@ -21,7 +21,7 @@
 
     white-space: nowrap;
     max-width: 100%;
-    padding-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .page-container > .contact-page-display > .contacts {
@@ -125,11 +125,7 @@
 @media screen and (max-width: 600px) {
 
     .page-container > .contact-page-display > .heading {
-        text-align: center;
         font-size: 2.75rem;
-        width: 100%;
-        margin-bottom: 0.75rem;
-        padding-bottom: 1.75rem;
     }
 
     .page-container > .contact-page-display > .contacts > .card.form {
@@ -142,10 +138,8 @@
 }
 
 @media screen and (min-width: 600px) and (max-width: 900px) {
-
     .page-container > .contact-page-display > .heading {
         font-size: 3rem;
-        margin-bottom: 1rem;
     }
     .page-container > .contact-page-display > .contacts  {
         flex-direction: column;

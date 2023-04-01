@@ -5,9 +5,8 @@
     background-position: center;
     background-size: 300%;
 
-    animation: pan 12s infinite ease-in;
+    animation: pan 20s infinite cubic-bezier(0.75, 0.1, 0.24, 0.98);
     animation-play-state: running;
-    transition: filter 0.3s ease-in-out;
 }
 
 .pan-img:hover {
@@ -17,19 +16,19 @@
 @keyframes pan {
     0% {
         background-position: 22% 12%;
-        background-size: 300%;
+        background-size: 250%;
     }
     33% {
         background-position: 10% 30%;
-        background-size: 300%;
+        background-size: 270%;
     }
     33.01% {
         background-position: 90% 90%;
-        background-size: 380%;
+        background-size: 270%;
     }
     66% {
         background-position: 42% 82%;
-        background-size: 380%;
+        background-size: 310%;
     }
     66.01% {
         background-position: 10% 0%;

@@ -15,11 +15,26 @@ html {
     --nav-item-icon-fill: #b7b7b7;
     --nav-item-icon-fill-active: #f3f3f3;
 
-    --highlight-color-primary: #9f86e0;
+    --accent-color-red: #e0796a;
+    --accent-color-yellow: #cdb75e;
+    --accent-color-blue: #709acd;
+    --accent-color-purple: #9f86e0;
 }
 
 html[data-accent="blue"] {
-    --highlight-color-primary: #709acd;
+    --highlight-color-primary: var(--accent-color-blue);
+}
+
+html[data-accent="red"] {
+    --highlight-color-primary: var(--accent-color-red);
+}
+
+html[data-accent="yellow"] {
+    --highlight-color-primary: var(--accent-color-yellow);
+}
+
+html[data-accent="purple"] {
+    --highlight-color-primary: var(--accent-color-purple);
 }
 
 html[data-theme='dark'] {

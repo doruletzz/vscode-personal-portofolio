@@ -14,12 +14,13 @@
     right: 0;
     left: 0;
 
-    background-image: url("/src/assets/background.webp");
+    background-color: rgb(228, 141, 64);
+    background-image: url("/src/assets/background.png");
     background-size:     cover;             
     background-repeat:   no-repeat;
     background-position: center center; 
 
-    filter: hue-rotate(149deg);
+    filter: saturate(70%);
 }
 
 

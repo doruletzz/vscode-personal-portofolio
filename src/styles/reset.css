@@ -48,3 +48,11 @@ table {
 *, *::before, *::after {
     box-sizing: border-box;
 }
+
+input:-internal-autofill-selected,
+inpu t:-webkit-autofill{
+	-webkit-text-fill-color: var(--nav-item-icon-fill) ;
+    
+	-webkit-box-shadow: 0 0 0 900px var(--bg-explorer-item-hover) inset !important;
+    box-shadow: 0 0 900px var(--bg-explorer-item-hover) inset !important;
+}

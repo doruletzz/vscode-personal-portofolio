@@ -3,6 +3,8 @@ import Button from '../../components/Button';
 
 import './AboutPageDisplayComponent.css';
 
+import dorletzSrc from '../../assets/profile-pic.png';
+
 export const AboutPageDisplayComponent = () => {
 	const TITLE = 'ABOUT ME';
 	const SUBTITLE = "i'm dorletz, a developer building stuff for the web.";
@@ -28,8 +30,8 @@ export const AboutPageDisplayComponent = () => {
 
 	const SUBTITLE_2 = 'tools that i use every single day.';
 
-	const BUTTON_PRIMARY = 'GET IN TOUCH !';
-	const BUTTON_SECONDARY = 'MY RESUME';
+	const BUTTON_PRIMARY = 'MY RESUME';
+	const BUTTON_SECONDARY = "LET'S WORK TOGETHER";
 
 	const FRONTEND =
 		'React, Typescript, Javascript, Redux, Html, Css, Sass, MUI, Bootstrap, Axios, Apollo';
@@ -41,7 +43,10 @@ export const AboutPageDisplayComponent = () => {
 	return (
 		<div className='about-page-display'>
 			<article>
-				<div className='heading'>{TITLE}</div>
+				<div className='profile-image-container'>
+					<img className='profile-image' src={dorletzSrc} />
+				</div>
+				<h1 className='heading'>{TITLE}</h1>
 				<h4 className='subheading'>{SUBTITLE}</h4>
 				<p className='content'>{CONTENT}</p>
 				<p className='content'>{CONTENT_2}</p>

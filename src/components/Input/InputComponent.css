@@ -14,12 +14,7 @@
     -webkit-box-shadow: inset 0 -0.125rem 0 0 var(--bg-explorer-item-active);
     box-shadow: inset 0 -0.125rem 0 0 var(--bg-explorer-item-active);
 
-    transform: translateY(-0.05rem);
     color: var(--nav-item-icon-fill-active);
-}
-
-.input:hover > input {
-    transform: translateY(-0.05rem);
 }
 
 .input > svg {

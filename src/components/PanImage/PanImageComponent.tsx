@@ -13,7 +13,10 @@ export const PanImageComponent = ({
 }: PanImageComponentProps) => {
 	return (
 		<div
-			style={{ backgroundImage: `url("${src}")` }}
+			style={{
+				backgroundImage: `url("${src}")`,
+				animationDelay: `-${Math.floor(Math.random() * 20)}s`,
+			}}
 			className={`pan-img ${className ?? ''}`}
 		/>
 	);

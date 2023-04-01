@@ -4,6 +4,9 @@ import CHESPAL from '../assets/chesspal.svg';
 import KITEAPP from '../assets/kite-app.svg';
 import GYMAPP from '../assets/gym-app.svg';
 import img from '../assets/background.webp';
+import gymImage from '../assets/gym-app-cover.png';
+import kiteImage from '../assets/kite-surf-cover.png';
+import chesspalImage from '../assets/chesspal-cover.png';
 
 export const projects: Project[] = [
 	{
@@ -17,7 +20,8 @@ export const projects: Project[] = [
 	},
 	{
 		icon: CHESPAL,
-		imgSrc: img,
+		badge: 'CHECK ME OUT',
+		imgSrc: chesspalImage,
 		title: 'ChessPal',
 		description: 'my awesome personal website',
 		slug: 'chesspal',
@@ -26,7 +30,7 @@ export const projects: Project[] = [
 	},
 	{
 		icon: GYMAPP,
-		imgSrc: img,
+		imgSrc: gymImage,
 		title: 'Gym App',
 		description: 'my awesome personal website',
 		slug: 'gym-app',
@@ -35,7 +39,7 @@ export const projects: Project[] = [
 	},
 	{
 		icon: KITEAPP,
-		imgSrc: img,
+		imgSrc: kiteImage,
 		title: 'Kite Surfer',
 		description: 'my awesome personal website',
 		slug: 'kite-surf',

@@ -5,14 +5,13 @@
     align-items: flex-start;
 }
 
-.blog-page > h1{
+.blog-page > h1 {
     position: relative;
     font-family: var(--ff-heading);
     font-weight: bold;
     font-size: 4rem;
     color: var(--text-page-primary);
 
-    white-space: nowrap;
     margin-bottom: 2rem;
 }
 
@@ -73,6 +72,9 @@
 
 
 @media screen and (max-width: 900px) {
+    .blog-page > h1{
+        font-size: 2.75rem;
+    }
     .blog-page > .articles {
         display: grid;
         grid-template-columns: 1fr;

@@ -332,15 +332,6 @@ xl, extra-large: 1536px */
 
 
 @media screen and (max-width: 600px) {
-    #root > .windows-bar { 
-        width: 80vw;  
-    }
-
-    html[data-initial='true'] > body > #root > .app-container {
-        width: 80vw;  
-        height: 85vh;  
-    }
-
     html[data-initial='false'] {
         font-size: 10px;
     }

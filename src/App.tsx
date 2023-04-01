@@ -95,9 +95,9 @@ const navItems = [
 ];
 
 const App = () => {
-	const [isInitial, setIsInitial] = useState(true);
+	const [isInitial, setIsInitial] = useState(() => window.innerWidth > 600);
 	const { theme, accent } = useAppSelector((state) => state.theme);
-	const [removeTransition, setRemoveTransition] = useState(false);
+	const [removeTransition, setRemoveTransition] = useState(() => !isInitial);
 
 	const dispatch = useAppDispatch();
 

@@ -333,7 +333,7 @@ xl, extra-large: 1536px */
 
 @media screen and (max-width: 600px) {
     html[data-initial='false'] {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .page-container > *:last-child {
@@ -352,7 +352,7 @@ xl, extra-large: 1536px */
     }
 
     html[data-initial='false'] {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     .page-container > *:last-child {

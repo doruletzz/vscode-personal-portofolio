@@ -3,13 +3,12 @@
     flex-direction: column;
 
     align-items: flex-start;
-    gap: 1rem
+    gap: 1rem;
 }
 
 .theme-page > .themes {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(6, 12rem);
     width: 100%;
 
     gap: 2rem;
@@ -30,7 +29,7 @@
 .theme-page > .themes > .card {
     cursor: pointer;
     min-width: 12rem;
-    max-height: 12rem;
+    min-height: 12rem;
 }
 
 .theme-page > .themes > .card > .card-content > .accents {
@@ -45,26 +44,44 @@
     place-items: center;
 }
 
-.theme-page > .themes > .card > .card-content > .accents > .color {
+.theme-page > .accents {
+    display: flex;
+    gap: 4rem;
+}
+
+.theme-page > .subheading  {
+    font-size: 2.25rem;
+}
+
+.theme-page > .accents > .card > .card-content > .wrapper > .color,
+.theme-page > .accents > .card {
     width:  2.25rem;
     height: 2.25rem;
 
+    border-radius: 100%;
     cursor: pointer;
+
+    transition: border-radius 1.3s  cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.theme-page > .themes > .card > .card-content > .accents > .color.blue {
+.theme-page > .accents > .card > .card-content > .wrapper > .color:hover,
+.theme-page > .accents > .card:hover {
+    transform: scale(1.05);
+}
+
+.theme-page > .accents > .card > .card-content > .wrapper > .color.blue {
     background-color: var(--accent-color-blue);
 }
 
-.theme-page > .themes > .card > .card-content > .accents > .color.purple {
+.theme-page > .accents > .card > .card-content > .wrapper > .color.purple {
     background-color: var(--accent-color-purple);
 }
 
-.theme-page > .themes > .card > .card-content > .accents > .color.red {
+.theme-page > .accents > .card > .card-content > .wrapper > .color.red {
     background-color: var(--accent-color-red);
 }
 
-.theme-page > .themes > .card > .card-content > .accents > .color.yellow {
+.theme-page > .accents > .card > .card-content > .wrapper > .color.yellow {
     background-color: var(--accent-color-yellow);
 }
 

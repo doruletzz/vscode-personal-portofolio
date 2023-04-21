@@ -1,7 +1,7 @@
 import React, { MouseEvent, useState } from 'react';
 import { View } from '../../constants/view';
 import { useAppDispatch, useAppSelector } from '../../features/app/hooks';
-import { setIsInitial, setView } from '../../features/view/slice';
+import { setView } from '../../features/view/slice';
 import Button from '../Button';
 import Tooltip from '../Tooltip';
 import { TopBarExplorerItemComponent } from './TopBarExplorerItemComponent';

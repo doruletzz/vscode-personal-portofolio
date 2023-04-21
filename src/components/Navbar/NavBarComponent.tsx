@@ -72,7 +72,7 @@ interface NavItem {
 }
 
 type NavBarComponentProps = {
-	pageViewRef: RefObject<unknown>;
+	pageViewRef?: RefObject<unknown>;
 	items: Array<NavItem>;
 };
 
@@ -84,13 +84,9 @@ export const NavBarComponent = ({
 
 	const { width } = useWindowDimensions();
 
-	const [isScrollDown, setIsScrollDown] = useState(false);
-
 	const navigate = useNavigate();
 
-	const { name, isExpanded, containerRef } = useAppSelector(
-		(state) => state.module
-	);
+	const { name, isExpanded } = useAppSelector((state) => state.module);
 	const dispatch = useAppDispatch();
 
 	const handleClick = (
@@ -103,26 +99,6 @@ export const NavBarComponent = ({
 			navigate(Module[moduleName].toLowerCase());
 		}
 	};
-
-	const scrollPosition = useScrollPosition(containerRef);
-
-	const [localScrollPosition, setLocalScrollPosition] = useState(
-		() => scrollPosition
-	);
-
-	useEffect(() => {
-		setLocalScrollPosition((prev) => {
-			if (prev < scrollPosition) setIsScrollDown(true);
-			return scrollPosition;
-		});
-
-		console.log(scrollPosition);
-	}, [scrollPosition]);
-
-	useEffect(() => {
-		console.log(isScrollDown ? 'down' : 'up');
-	}, [isScrollDown]);
-
 	return (
 		<nav className='nav-container'>
 			<ul>

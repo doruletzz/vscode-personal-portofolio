@@ -20,6 +20,24 @@
     object-fit: cover;
     position: absolute;
     left: 24rem;
+
+    filter: brightness(120%) contrast(90%);
+}
+
+
+.page-container > .about-page-display > article > .profile-image-container::after {
+    content: "";
+    z-index: -11;
+    pointer-events: none;
+    height: calc(100% + 20rem);
+    width: calc(100% - 24rem);
+    object-fit: cover;
+    position: absolute;
+    left: 24rem;
+
+    background-color: var(--highlight-color-primary);
+    mix-blend-mode: multiply;
+    
 }
 
 .page-container > .about-page-display > article > .subheading {
@@ -81,7 +99,8 @@
         height: 12rem;
     }
 
-    .page-container > .about-page-display > article > .profile-image-container > .profile-image {
+    .page-container > .about-page-display > article > .profile-image-container > .profile-image,
+    .page-container > .about-page-display > article > .profile-image-container::after {
         height: calc(100% + 3rem);
         width: 100%;
         left: 0;

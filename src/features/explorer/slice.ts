@@ -3,8 +3,8 @@ import { MouseEvent, ReactNode } from 'react';
 
 type ExplorerItem = {
 	path: string;
-	onClick: (e: MouseEvent<HTMLButtonElement>) => void;
-	onClose: (e: MouseEvent<HTMLButtonElement>) => void;
+	onClick: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
+	onClose: (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => void;
 	icon: ReactNode;
 	title: string;
 };

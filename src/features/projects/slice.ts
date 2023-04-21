@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ReactNode } from 'react';
 import { projects } from '../../constants/projects';
-import { Theme } from '../../constants/theme';
 
 import { Project } from '../../types/projects';
 

@@ -6,21 +6,38 @@
     min-height: 100vh;
 }
 
-:root::before {
+:root::after {
     content: "";
+    z-index: -1;
     position: absolute;
     top: 0;
     bottom:0;
     right: 0;
     left: 0;
 
-    background-color: rgb(228, 141, 64);
+
+    background-color: var(--highlight-color-primary);
     background-image: url("/src/assets/background.png");
     background-size:     cover;             
     background-repeat:   no-repeat;
-    background-position: center center; 
+    background-position: center center;
 
-    filter: saturate(70%);
+    filter: saturate(0%) contrast(120%) brightness(110%);
+    opacity: 0.6;
+    mix-blend-mode: multiply;
+}
+
+
+:root::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom:0;
+    right: 0;
+    left: 0;
+
+    background-color: var(--highlight-color-primary);
 }
 
 

@@ -62,19 +62,22 @@ export const ThemePageComponent = () => {
 						</div>
 					</Card>
 				))}
-				<Card>
-					<div className='accents'>
-						{accents.map((accent) => (
+			</div>
+			<br />
+			<h1 className='subheading'>...OR CHOOSE YOUR ACCENT</h1>
+			<div className='accents'>
+				{accents.map((accent) => (
+					<Card key={accent.class}>
+						<div className='wrapper' onClick={accent.onClick}>
 							<div
 								key={accent.class}
 								className={`color ${Accent[
 									accent.class
 								].toLowerCase()}`}
-								onClick={accent.onClick}
 							/>
-						))}
-					</div>
-				</Card>
+						</div>
+					</Card>
+				))}
 			</div>
 		</div>
 	);

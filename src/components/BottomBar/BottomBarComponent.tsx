@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 
 import './BottomBarComponent.css';
 
@@ -8,13 +8,41 @@ import { ReactComponent as ContactIcon } from '../../assets/contact.svg';
 import { ReactComponent as ViteIcon } from '../../assets/vite.svg';
 import { ReactComponent as SuccessIcon } from '../../assets/success.svg';
 import { ReactComponent as CheckMarkIcon } from '../../assets/checkmark.svg';
+
+import { ReactComponent as HomeIcon } from '../../assets/home.svg';
+import { ReactComponent as AboutIcon } from '../../assets/profile.svg';
+import { ReactComponent as ProjectsIcon } from '../../assets/projects.svg';
+import { ReactComponent as GithubIcon } from '../../assets/github.svg';
+import { ReactComponent as BlogIcon } from '../../assets/blog.svg';
+import { ReactComponent as ThemeIcon } from '../../assets/theme.svg';
 import { useAppSelector } from '../../features/app/hooks';
 import { Theme } from '../../constants/theme';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import Tooltip from '../Tooltip';
+import { Module } from '../../constants/module';
+
+type ModuleIconProps = {
+	name: Module;
+};
+
+const ModuleIcon = ({ name }: ModuleIconProps) => {
+	const icons: { [key in Module]: ReactNode } = {
+		[Module.HOME]: <HomeIcon />,
+		[Module.ABOUT]: <AboutIcon />,
+		[Module.PROJECTS]: <ProjectsIcon />,
+		[Module.GITHUB]: <GithubIcon />,
+		[Module.BLOG]: <BlogIcon />,
+		[Module.THEME]: <ThemeIcon />,
+		[Module.CONTACT]: <ContactIcon />,
+	};
+
+	console.log(icons[name]);
+	return icons[name] ?? HomeIcon;
+};
 
 export const BottomBarComponent = () => {
 	const { theme } = useAppSelector((state) => state.theme);
+	const { name } = useAppSelector((state) => state.module);
 	const { width } = useWindowDimensions();
 	const [time, setTime] = useState('');
 
@@ -54,13 +82,13 @@ export const BottomBarComponent = () => {
 						<li>
 							<ul>
 								<li>
-									<SuccessIcon /> 99%
+									<SuccessIcon /> 96%
 								</li>
 								<li>
-									<SuccessIcon /> 99%
+									<SuccessIcon /> 100%
 								</li>
 								<li>
-									<SuccessIcon /> 99%
+									<SuccessIcon /> 100%
 								</li>
 								<li>
 									<SuccessIcon /> 99%
@@ -94,9 +122,12 @@ export const BottomBarComponent = () => {
 								<ViteIcon />
 							</li>
 						</Tooltip>
-						<Tooltip title='mail' position='top'>
+						<Tooltip
+							title={Module[name].toLowerCase()}
+							position='top'
+						>
 							<li>
-								<ContactIcon />
+								<ModuleIcon name={name} />
 							</li>
 						</Tooltip>
 					</>

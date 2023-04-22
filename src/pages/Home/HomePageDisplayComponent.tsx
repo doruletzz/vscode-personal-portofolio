@@ -11,7 +11,7 @@ export const HomePageDisplayComponent = () => {
 	const HEADING = 'DOR-LETZ,';
 	const SUB_HEADING_1 = "Hello world! I'm";
 	const SUB_HEADING_2 =
-		'a frontend developer based in Cluj-Napoca, Romania, with the mission of crafting exceptional stuff for the web';
+		'a frontend developer based in Cluj-Napoca, Romania, with the mission of crafting awesome stuff for the web';
 
 	const CTA_PRIMARY = 'GET IN TOUCH';
 	const CTA_SECONDARY = 'MY PROJECTS';

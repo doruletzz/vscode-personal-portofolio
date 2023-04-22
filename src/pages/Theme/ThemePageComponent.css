@@ -51,6 +51,7 @@
 
 .theme-page > .subheading  {
     font-size: 2.25rem;
+    margin-block: 4rem 1rem;
 }
 
 .theme-page > .accents > .card > .card-content > .wrapper > .color,

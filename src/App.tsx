@@ -43,6 +43,7 @@ import useWindowDimensions from './hooks/useWindowDimensions';
 
 import BottomBar from './components/BottomBar';
 import { Accent } from './constants/accent';
+import AnnouncementBar from './components/AnnouncementBar';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -98,8 +99,16 @@ const App = () => {
 	const [isInitial, setIsInitial] = useState(() => window.innerWidth > 600);
 	const { theme, accent } = useAppSelector((state) => state.theme);
 	const [removeTransition, setRemoveTransition] = useState(() => !isInitial);
+	const [showAnnouncement, setShowAnnouncement] = useState(true);
 
 	const dispatch = useAppDispatch();
+
+	const ANNOUNCEMENT = () => (
+		<p>
+			React Developer. UX/UI Focused. Done is better than perfect.{' '}
+			<u>Let's work together</u>
+		</p>
+	);
 
 	const handleAppContainerClick = (e: MouseEvent<HTMLDivElement>) => {
 		setIsInitial(false);
@@ -145,6 +154,14 @@ const App = () => {
 				className='app-container'
 			>
 				<Router>
+					{showAnnouncement && (
+						<AnnouncementBar
+							onClick={() => console.log('clicked')}
+							onClose={() => setShowAnnouncement(false)}
+						>
+							<ANNOUNCEMENT />
+						</AnnouncementBar>
+					)}
 					<Navbar items={navItems} />
 					<Explorer />
 					<PageView>

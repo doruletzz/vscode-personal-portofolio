@@ -70,6 +70,10 @@ html[data-initial='true'] > body > #root:hover {
     filter: drop-shadow(0px 47.5px 25px rgba(0, 0, 0, 0.15));
 }
 
+.app-container > .announcement-bar {
+    min-height: 2rem;
+}
+
 .app-container > .nav-container {
     z-index: 4;
     background-color: var(--bg-nav);
@@ -80,10 +84,16 @@ html[data-initial='true'] > body > #root:hover {
     flex-direction: column;
     justify-content: space-between;
     position: absolute;
-    min-height: calc(100% - 1.75rem);
+    height: calc(100% - 1.75rem);
     width: 4rem;
 
     transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.app-container > .announcement-bar + .nav-container,
+.app-container > .announcement-bar ~ .explorer-container,
+.app-container > .announcement-bar ~ .page-container {
+    height: calc(100% - 3.75rem);
 }
 
 .app-container > .explorer-container {
@@ -91,7 +101,7 @@ html[data-initial='true'] > body > #root:hover {
     background-color: var(--bg-explorer);
     position: absolute;
     left: 4rem;
-    min-height: calc(100% - 1.75rem);
+    height: calc(100% - 1.75rem);
     border-right: 0.075rem solid var(--bg-border);
     transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
                 width 1s cubic-bezier(0.075, 0.82, 0.165, 1); 

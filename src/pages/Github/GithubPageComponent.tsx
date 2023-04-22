@@ -49,7 +49,6 @@ export const GithubPageComponent = () => {
 					)
 					.slice(0, 9);
 
-				console.log(data);
 				setGithubRepositoryData(data);
 			});
 	}, [githubProfileData]);

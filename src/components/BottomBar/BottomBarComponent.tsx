@@ -36,7 +36,6 @@ const ModuleIcon = ({ name }: ModuleIconProps) => {
 		[Module.CONTACT]: <ContactIcon />,
 	};
 
-	console.log(icons[name]);
 	return icons[name] ?? HomeIcon;
 };
 

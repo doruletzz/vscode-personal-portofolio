@@ -81,7 +81,7 @@ export const BottomBarComponent = () => {
 						<li>
 							<ul>
 								<li>
-									<SuccessIcon /> 96%
+									<SuccessIcon /> 97%
 								</li>
 								<li>
 									<SuccessIcon /> 100%
@@ -90,7 +90,7 @@ export const BottomBarComponent = () => {
 									<SuccessIcon /> 100%
 								</li>
 								<li>
-									<SuccessIcon /> 99%
+									<SuccessIcon /> 95%
 								</li>
 							</ul>
 						</li>
@@ -122,7 +122,7 @@ export const BottomBarComponent = () => {
 							</li>
 						</Tooltip>
 						<Tooltip
-							title={Module[name].toLowerCase()}
+							title={name ? Module[name].toLowerCase() : ''}
 							position='top'
 						>
 							<li>

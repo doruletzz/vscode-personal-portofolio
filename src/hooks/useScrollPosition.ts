@@ -14,7 +14,6 @@ export default function useScrollPosition(ref?: RefObject<HTMLDivElement>) {
 	useEffect(() => {
 		function handleScroll() {
 			setScrollPosition(getScrollPosition());
-			console.log('changing...');
 		}
 
 		if (!ref) return;

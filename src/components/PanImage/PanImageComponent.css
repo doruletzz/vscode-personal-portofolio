@@ -10,7 +10,10 @@
 }
 
 .pan-img:hover {
+    background-position: 0% 50% !important;
     animation-play-state: paused;
+    background-size: 100% !important;
+
 }
 
 @keyframes pan {

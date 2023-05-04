@@ -122,7 +122,7 @@ export const BottomBarComponent = () => {
 							</li>
 						</Tooltip>
 						<Tooltip
-							title={name ? Module[name].toLowerCase() : ''}
+							title={(Module[name] ?? 'HOME').toLowerCase()}
 							position='top'
 						>
 							<li>

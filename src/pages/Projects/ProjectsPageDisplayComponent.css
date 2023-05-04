@@ -83,6 +83,12 @@
     color: var(--nav-item-icon-fill-active);
 }
 
+.projects-page  > .projects > .tooltip-wrapper > .card.project > .card-content > a {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
 
 
 @media screen and (max-width: 600px) {

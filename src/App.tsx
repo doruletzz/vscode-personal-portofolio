@@ -106,7 +106,7 @@ const App = () => {
 	const ANNOUNCEMENT = () => (
 		<p>
 			React Developer. UX/UI Focused. Done is better than perfect.{' '}
-			<u>Let's work together</u>
+			<u>Let's work together!</u>
 		</p>
 	);
 

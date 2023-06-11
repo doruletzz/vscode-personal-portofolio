@@ -1,0 +1,42 @@
+.snackbar-container {
+	z-index: 20;
+	position: absolute;
+	bottom: 2.75rem;
+	right: 1rem;
+
+	padding: 1.25rem;
+
+	background-color: var(--bg-explorer);
+	color: var(--text-page-secondary);
+	fill: var(--text-page-secondary);
+	border: 0.1rem solid var(--bg-border);
+
+	animation-name: slideUp;
+	animation-duration: 0.7s;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	max-width: 24rem;
+}
+
+.snackbar-container > .card-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.snackbar-container > .card-content > .snackbar-header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.snackbar-container > .card-content > .snackbar-header > .button {
+	display: grid;
+	place-items: center;
+	aspect-ratio: 1 / 1;
+}
+
+.snackbar-container > .card-content > .snackbar-header > .button > svg {
+	width: 0.5rem;
+	height: 0.5rem;
+	fill: var(--text-page-secondary);
+}

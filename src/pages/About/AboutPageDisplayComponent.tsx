@@ -44,7 +44,11 @@ export const AboutPageDisplayComponent = () => {
 		<div className='about-page-display'>
 			<article>
 				<div className='profile-image-container'>
-					<img className='profile-image' src={dorletzSrc} />
+					<img
+						loading='lazy'
+						className='profile-image'
+						src={dorletzSrc}
+					/>
 				</div>
 				<h1 className='heading'>{TITLE}</h1>
 				<h4 className='subheading'>{SUBTITLE}</h4>

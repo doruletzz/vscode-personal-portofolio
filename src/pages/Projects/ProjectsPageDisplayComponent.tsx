@@ -61,6 +61,7 @@ export const ProjectsPageDisplayComponent = () => {
 																	typeof icon ===
 																	'string' ? (
 																		<img
+																			loading='lazy'
 																			src={
 																				icon
 																			}
@@ -107,6 +108,7 @@ export const ProjectsPageDisplayComponent = () => {
 																typeof icon ===
 																'string' ? (
 																	<img
+																		loading='lazy'
 																		src={
 																			icon
 																		}
@@ -153,7 +155,10 @@ export const ProjectsPageDisplayComponent = () => {
 													icon:
 														typeof icon ===
 														'string' ? (
-															<img src={icon} />
+															<img
+																loading='lazy'
+																src={icon}
+															/>
 														) : (
 															icon
 														),

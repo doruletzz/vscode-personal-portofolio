@@ -54,8 +54,12 @@ export const BottomBarComponent = () => {
 			const hour = date.getHours();
 			const minute = date.getMinutes();
 
-			setTime(`${weekday[dayNr]}, ${hour}:${minute}`);
-		}, 1000);
+			setTime(
+				`${weekday[dayNr]}, ${hour < 10 ? '0' : ''}${hour}:${
+					minute < 10 ? '0' : ''
+				}${minute}`
+			);
+		}, 10000);
 
 		return () => clearInterval(interval);
 	}, [time]);

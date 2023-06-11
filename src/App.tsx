@@ -44,6 +44,7 @@ import useWindowDimensions from './hooks/useWindowDimensions';
 import BottomBar from './components/BottomBar';
 import { Accent } from './constants/accent';
 import AnnouncementBar from './components/AnnouncementBar';
+import Snackbar from './components/Snackbar';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -96,6 +97,8 @@ const navItems = [
 ];
 
 const App = () => {
+	const [showSnackbar, setShowSnackbar] = useState(true);
+
 	const [isInitial, setIsInitial] = useState(() => window.innerWidth > 600);
 	const { theme, accent } = useAppSelector((state) => state.theme);
 	const [removeTransition, setRemoveTransition] = useState(() => !isInitial);
@@ -154,6 +157,18 @@ const App = () => {
 				className='app-container'
 			>
 				<Router>
+					{showSnackbar && (
+						<Snackbar
+							title='hello-world'
+							onClose={() => setShowSnackbar(false)}
+						>
+							<p>
+								this website is still under construction, so
+								make sure to stay in touch :)
+							</p>
+						</Snackbar>
+					)}
+
 					{showAnnouncement && (
 						<AnnouncementBar
 							onClick={() => console.log('clicked')}

@@ -1,13 +1,13 @@
 import { Route, Routes } from 'react-router';
-import { ProjectsPageDorletzComponent } from './ProjectsPageDorletzComponent';
 import { ProjectsPageDisplayComponent } from './ProjectsPageDisplayComponent';
+import { ProjectsPageKiteSurfComponent } from './ProjectsPageDisplayProjectComponent';
 
-const ProjectsPageDorletzDisplay = ProjectsPageDorletzComponent;
+const ProjectsPageKiteSurfDisplay = ProjectsPageKiteSurfComponent;
 
 const ProjectsPage = () => {
 	return (
 		<Routes>
-			<Route path='dorletz' element={<ProjectsPageDorletzDisplay />} />
+			<Route path=':slug' element={<ProjectsPageKiteSurfDisplay />} />
 			<Route path='*' element={<ProjectsPageDisplayComponent />} />
 		</Routes>
 	);

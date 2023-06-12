@@ -54,7 +54,7 @@ export const ProjectComponent = ({
 						title: title,
 						icon:
 							typeof icon === 'string' ? (
-								<img src={icon} />
+								<img loading='lazy' src={icon} />
 							) : (
 								icon
 							),
@@ -68,7 +68,7 @@ export const ProjectComponent = ({
 		>
 			{icon && (
 				<div className='explorer-project-icon'>
-					<img src={icon} />
+					<img loading='lazy' src={icon} />
 				</div>
 			)}
 			<h6 className='explorer-project-title'>{title}</h6>

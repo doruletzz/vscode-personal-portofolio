@@ -17,10 +17,10 @@
 
 
     background-color: var(--highlight-color-primary);
-    background-image: url("/src/assets/background.png");
-    background-size:     cover;             
-    background-repeat:   no-repeat;
-    background-position: center center;
+    /* background-image: url("/src/assets/background.png"); */
+    /* background-size:     cover;              */
+    /* background-repeat:   no-repeat; */
+    /* background-position: center center; */
 
     filter: saturate(0%) contrast(120%) brightness(110%);
     opacity: 0.6;
@@ -42,6 +42,6 @@
 
 
 html[data-initial='true'] {
-    font-size: 11px;
+    font-size: 12px;
 }
 

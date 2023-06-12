@@ -57,40 +57,8 @@ export const TopBarComponent = () => {
 							onClose={item.onClose}
 						/>
 					))}
-					{/* <TopBarExplorerItem
-					active
-					title={'index.html'}
-					icon={<CodeIcon />}
-					onClick={() => {
-						alert('clicked');
-					}}
-					onClose={() => {
-						console.log('hw');
-					}}
-				/>
-				<TopBarExplorerItem
-					title={'index.html'}
-					icon={<CodeIcon />}
-					onClick={() => {
-						alert('clicked');
-					}}
-					onClose={() => {
-						console.log('hw');
-					}}
-				/> */}
 				</div>
 				<div className='button-container'>
-					{/* <Tooltip position='bottom' title='change view (disabled)'>
-						<Button
-							disabled
-							type='text'
-							id='change view'
-							onClick={handleChangeViewButtonClick}
-							className='change-view'
-						>
-							<TopBarButtonIcon view={view} />
-						</Button>
-					</Tooltip> */}
 					<Tooltip
 						position='bottom'
 						title={!showSettingsMenu && 'settings'}
@@ -115,7 +83,6 @@ export const TopBarComponent = () => {
 													(prev) => !prev
 												);
 												dispatch(setExplorerItems([]));
-												console.log('closing all tabs');
 											}}
 										>
 											Close All Tabs

@@ -10,6 +10,7 @@ import { ModuleProjectsExplorer } from './ModuleProjectsExplorer';
 import { ModuleGithubExplorerComponent } from './ModuleGithubExplorerComponent';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { setIsModuleExpanded } from '../../features/module/slice';
+import { ModuleThemeExplorerComponent } from './ModuleThemeExplorerComponent';
 
 type ModuleExplorerComponentProps = {
 	module: Module;
@@ -25,6 +26,8 @@ const ModuleExplorerComponent = ({ module }: ModuleExplorerComponentProps) => {
 	if (module === Module.BLOG) return <ModuleBlogExplorerComponent />;
 
 	if (module === Module.GITHUB) return <ModuleGithubExplorerComponent />;
+
+	if (module === Module.THEME) return <ModuleThemeExplorerComponent />;
 
 	return <ModuleHomeExplorerComponent />;
 };

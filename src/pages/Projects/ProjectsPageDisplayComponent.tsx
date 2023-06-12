@@ -61,6 +61,7 @@ export const ProjectsPageDisplayComponent = () => {
 																	typeof icon ===
 																	'string' ? (
 																		<img
+																			loading='lazy'
 																			src={
 																				icon
 																			}
@@ -107,6 +108,7 @@ export const ProjectsPageDisplayComponent = () => {
 																typeof icon ===
 																'string' ? (
 																	<img
+																		loading='lazy'
 																		src={
 																			icon
 																		}
@@ -136,7 +138,50 @@ export const ProjectsPageDisplayComponent = () => {
 									<p>{description}</p>
 								</div>
 								{imgSrc && (
-									<PanImage className='icon' src={imgSrc} />
+									<a
+										onClick={(e) => {
+											const pathName =
+												Module[
+													moduleName
+												].toLocaleLowerCase() +
+												'/' +
+												slug;
+											handleClick(pathName, e);
+
+											dispatch(
+												addExplorerItem({
+													path: pathName,
+													title: title,
+													icon:
+														typeof icon ===
+														'string' ? (
+															<img
+																loading='lazy'
+																src={icon}
+															/>
+														) : (
+															icon
+														),
+													onClick: (e) =>
+														handleClick(
+															pathName,
+															e
+														),
+													onClose: () =>
+														dispatch(
+															removeExplorerItem(
+																pathName
+															)
+														),
+												})
+											);
+										}}
+									>
+										<PanImage
+											className='icon'
+											src={imgSrc}
+										/>
+									</a>
 								)}
 							</Card>{' '}
 						</Tooltip>

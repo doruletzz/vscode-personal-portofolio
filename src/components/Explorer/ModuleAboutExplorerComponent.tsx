@@ -9,6 +9,11 @@ export const ModuleAboutExplorerComponent = () => {
 	return (
 		<FolderComponent name='ABOUT-ME' path={['about-me']}>
 			<FileComponent
+				icon={<MarkDownIcon />}
+				name='About.md'
+				path={['about-me', 'about-md']}
+			/>
+			<FileComponent
 				icon={<GitIcon />}
 				name='.gitignore'
 				path={['about-me', 'gitignore']}

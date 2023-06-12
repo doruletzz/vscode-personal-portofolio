@@ -1,187 +1,199 @@
 #root {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    filter: drop-shadow(0px 47.5px 25px rgba(0, 0, 0, 0.2));
+	filter: drop-shadow(0px 47.5px 25px rgba(0, 0, 0, 0.2));
 }
 
 #root > .windows-bar {
-    width: 60vw;
-    height: 2.675rem;
+	width: 60vw;
+	height: 2.675rem;
 
-    background-color: var(--bg-explorer);
-    border: 0.1rem solid var(--bg-border);
+	background-color: var(--bg-explorer);
+	border: 0.1rem solid var(--bg-border);
 
-    display: flex;
-    gap: 1.25rem;
-    align-items: center;
-    justify-content: flex-end;
+	display: flex;
+	gap: 1.25rem;
+	align-items: center;
+	justify-content: flex-end;
 
-    padding: 0 1.25rem;
+	padding: 0 1.25rem;
 }
 
 #root > .windows-bar > li {
-    width: 0.675rem;
-    height: 0.675rem;
+	width: 0.675rem;
+	height: 0.675rem;
 
-    border: 0.1rem solid var(--nav-item-icon-fill);
-    border-radius: 1rem;
+	border: 0.1rem solid var(--nav-item-icon-fill);
+	border-radius: 1rem;
 }
 
 #root > .windows-bar > li:nth-child(1) {
-    background-color: #63cd6d;
+	background-color: #63cd6d;
 }
 
 #root > .windows-bar > li:nth-child(2) {
-    background-color: #c6ca5c;
+	background-color: #c6ca5c;
 }
 
 #root > .windows-bar > li:nth-child(3) {
-    background-color: #da6e4d;
+	background-color: #da6e4d;
 }
 
 .app-container {
-    font-family: var(--ff-content);
-    background-color: var(--bg-page);
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    
-    overflow: hidden;
-    transition: width 1.5s  cubic-bezier(0.075, 0.82, 0.165, 1),
-                height 1.5s  cubic-bezier(0.075, 0.82, 0.165, 1),
-                font-size 3.5s  cubic-bezier(0.075, 0.82, 0.165, 1);
+	font-family: var(--ff-content);
+	background-color: var(--bg-page);
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+
+	overflow: hidden;
+	transition: width 1.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+		height 1.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+		font-size 3.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-
 html[data-initial='true'] > body > #root > .app-container {
-    width: 60vw;
-    height: 60vh;
-    position: relative;
+	width: 60vw;
+	height: 60vh;
+	position: relative;
 
-    cursor: pointer;
-    pointer-events: all;
+	cursor: pointer;
+	pointer-events: all;
 
-    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 html[data-initial='true'] > body > #root:hover {
-    transform: scale(1.01);
-    filter: drop-shadow(0px 47.5px 25px rgba(0, 0, 0, 0.15));
+	transform: scale(1.01);
+	filter: drop-shadow(0px 47.5px 25px rgba(0, 0, 0, 0.15));
+}
+
+.app-container > .announcement-bar {
+	min-height: 2rem;
 }
 
 .app-container > .nav-container {
-    z-index: 4;
-    background-color: var(--bg-nav);
-    color: var(--text-page-primary);
-    border-right: 0.075rem solid var(--bg-border);
+	z-index: 4;
+	background-color: var(--bg-nav);
+	color: var(--text-page-primary);
+	border-right: 0.075rem solid var(--bg-border);
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
-    min-height: calc(100% - 1.75rem);
-    width: 4rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	position: absolute;
+	height: calc(100% - 1.75rem);
+	width: 4rem;
 
-    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.app-container > .announcement-bar + .nav-container,
+.app-container > .announcement-bar ~ .explorer-container,
+.app-container > .announcement-bar ~ .page-container {
+	height: calc(100% - 3.75rem);
 }
 
 .app-container > .explorer-container {
-    z-index: 3;
-    background-color: var(--bg-explorer);
-    position: absolute;
-    left: 4rem;
-    min-height: calc(100% - 1.75rem);
-    border-right: 0.075rem solid var(--bg-border);
-    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
-                width 1s cubic-bezier(0.075, 0.82, 0.165, 1); 
+	z-index: 3;
+	background-color: var(--bg-explorer);
+	position: absolute;
+	left: 4rem;
+	height: calc(100% - 1.75rem);
+	border-right: 0.075rem solid var(--bg-border);
+	transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+		width 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .app-container > .page-container {
-    z-index: 1;
-    background-color: var(--bg-page);
-    height: calc(100% - 1.75rem);
-    position: absolute;
-    right: 0;
-    transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
-                left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    max-height: 100%;
+	z-index: 1;
+	background-color: var(--bg-page);
+	height: calc(100% - 1.75rem);
+	position: absolute;
+	right: 0;
+	transition: background-color 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+		left 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+	max-height: 100%;
 
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .app-container > .bottom-bar {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1.75rem;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 1.75rem;
 
-    border-top: 0.075rem solid var(--bg-border);
-    z-index: 6;
+	border-top: 0.075rem solid var(--bg-border);
+	z-index: 6;
 }
 
 .app-container > .page-container > *:nth-child(3) {
-    animation: pageSlideDown 1.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation: pageSlideDown 1.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .app-container > .page-container > .loading {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
+	-webkit-transition: none !important;
+	-moz-transition: none !important;
+	-o-transition: none !important;
+	transition: none !important;
 
-    display: grid;
-    align-content: center;
-    justify-items: center;
+	display: grid;
+	align-content: center;
+	justify-items: center;
 }
 
-
 .page-container > *:last-child {
-    overflow: auto;
+	overflow: auto;
 
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    height: calc(100% - 3rem);
+	-ms-overflow-style: none; /* Internet Explorer 10+ */
+	scrollbar-width: none; /* Firefox */
+	height: calc(100% - 3rem);
 
-    padding: 2rem 4rem;
-    margin-top: 3rem;
+	padding: 2rem 4rem;
+	margin-top: 3rem;
 
-    transition: height 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),
-                margin 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: height 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),
+		margin 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .page-container > .top-bar.empty ~ *:last-child {
-    height: 100%;
-    margin-top: 0;
+	height: 100%;
+	margin-top: 0;
 }
 
+.page-container > .top-bar ~ *:last-child {
+	height: calc(100% - 3rem);
+	margin-top: 3rem;
+}
 
 .page-container > .top-bar-anchor:hover + .top-bar.empty ~ *:last-child,
 .page-container > .top-bar.empty:hover ~ *:last-child {
-    height: calc(100% - 3rem);
-    margin-top: 3rem;
+	height: calc(100% - 3rem);
+	margin-top: 3rem;
 }
 
 .page-container > *:last-child::-webkit-scrollbar {
-    display: none;
+	display: none;
 }
 
 .page-container > *:last-child > article {
-    max-width: 96ch;
+	max-width: 96ch;
 
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
-    overflow: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	align-items: flex-start;
+	overflow: auto;
 }
 
 .page-container > *:last-child > article > h1,
-.page-container > *:last-child > h1  {
-    animation-name: slideUp;
-    animation-duration: 1.5s;
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+.page-container > *:last-child > h1 {
+	animation-name: slideUp;
+	animation-duration: 1.5s;
+	animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .page-container > *:last-child > article > h1,
@@ -190,139 +202,132 @@ html[data-initial='true'] > body > #root:hover {
 .page-container > *:last-child > article > h4,
 .page-container > *:last-child > article > h5,
 .page-container > *:last-child > article > h6 {
-    font-family: var(--ff-heading);
-    color: var(--text-page-primary);
-
-
+	font-family: var(--ff-heading);
+	color: var(--text-page-primary);
 }
 
 .page-container > *:last-child > article > p,
 .page-container > *:last-child > article > ul {
-    line-height: 1.25;
-    color: var(--text-page-secondary);
+	line-height: 1.25;
+	color: var(--text-page-secondary);
 }
-
 
 .page-container > *:last-child > article > a,
 .page-container > *:last-child > article > p > a {
-    position: relative;
-    line-height: 1.25;
-    color: var(--text-page-primary);
-    font-weight: bold;
-    text-decoration: none;
+	position: relative;
+	line-height: 1.25;
+	color: var(--text-page-primary);
+	font-weight: bold;
+	text-decoration: none;
 }
 
 .page-container > *:last-child > article > a::before,
 .page-container > *:last-child > article > h1::before,
 .page-container > *:last-child > h1::before,
 .page-container > *:last-child > article > p > a::before {
-    content: "";
-    background-color: var(--bg-border);
-    z-index: -2;
-    left: 0%;
-    position: absolute;
-    bottom: 0;
-    top: 60%;
+	content: '';
+	background-color: var(--bg-border);
+	z-index: -2;
+	left: 0%;
+	position: absolute;
+	bottom: 0;
+	top: 60%;
 
-    right: 100%;
+	right: 100%;
 }
 
 .page-container > *:last-child > article > a:hover::before,
 .page-container > *:last-child > article > h1:hover::before,
 .page-container > *:last-child > h1:hover::before,
 .page-container > *:last-child > article > p > a:hover::before {
-    right: 0%;
-    transition: right 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+	right: 0%;
+	transition: right 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .page-container > *:last-child > article > pre,
 .page-container > *:last-child > article > p > code {
-    border-bottom: 0.2rem solid var(--bg-explorer-item-active);
-    padding: 1rem 2rem;
-    background-color: var(--bg-explorer-item-hover);
-    color: var(--text-page-secondary);
-    line-height: 1.5;
+	border-bottom: 0.2rem solid var(--bg-explorer-item-active);
+	padding: 1rem 2rem;
+	background-color: var(--bg-explorer-item-hover);
+	color: var(--text-page-secondary);
+	line-height: 1.5;
 }
 
 .page-container > *:last-child > article > p > code {
-    border-bottom: 0.2rem solid var(--bg-explorer-item-active);
-    padding: 0.25rem 0.5rem;
-    background-color: var(--bg-explorer-item-hover);
-    color: var(--text-page-secondary);
-    line-height: 1.5;
-
+	border-bottom: 0.2rem solid var(--bg-explorer-item-active);
+	padding: 0.25rem 0.5rem;
+	background-color: var(--bg-explorer-item-hover);
+	color: var(--text-page-secondary);
+	line-height: 1.5;
 }
 
 .page-container > *:last-child > article > h1 {
-    position: relative;
-    font-weight: bold;
-    font-size: 2rem;
+	position: relative;
+	font-weight: bold;
+	font-size: 2rem;
 }
 
 .page-container > *:last-child > article > h2 {
-    font-size: 1.5rem;
-    margin-top: 1rem;
+	font-size: 1.5rem;
+	margin-top: 1rem;
 }
 
 .page-container > *:last-child > article > h4 {
-    font-size: 1.125rem;
-    margin-top: 1rem;
+	font-size: 1.125rem;
+	margin-top: 1rem;
 }
 
-
 .page-container > *:last-child > article > .content {
-    font-family: var(--ff-content);
-    font-size: 1rem;
-    color: var(--text-page-secondary);
+	font-family: var(--ff-content);
+	font-size: 1rem;
+	color: var(--text-page-secondary);
 
-    line-height: 1.75;
+	line-height: 1.75;
 }
 
 .page-container > *:last-child > article > ul > li::before {
-    content: "";
-    background-color: var(--bg-explorer-item-hover);
-    z-index: -1;
-    position: absolute;
-    width: 3rem;
-    height: 1.25rem;
-    bottom: 0;
-    top: -0.25rem;
-    left: -1rem;
+	content: '';
+	background-color: var(--bg-explorer-item-hover);
+	z-index: -1;
+	position: absolute;
+	width: 3rem;
+	height: 1.25rem;
+	bottom: 0;
+	top: -0.25rem;
+	left: -1rem;
 
-    transition: width 0.7s ease, height 0.7s ease;
+	transition: width 0.7s ease, height 0.7s ease;
 }
 
 .page-container > *:last-child > article > ul > li:hover::before {
-    width: 1.25rem;
-    height: 2.25rem;
+	width: 1.25rem;
+	height: 2.25rem;
 }
 
 .page-container > *:last-child > article > ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    line-height: 1.75;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
+	line-height: 1.75;
 
-    margin-left: 3rem;
+	margin-left: 3rem;
 }
 
 .page-container > *:last-child > article > ul > li {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
 }
-
 
 @keyframes pageSlideDown {
-    0% {
-        transform: translateX(-15%);
-    }
-    100% {
-        transform: translateX(0);
-    }
+	0% {
+		transform: translateX(-15%);
+	}
+	100% {
+		transform: translateX(0);
+	}
 }
-
 
 /* xs, extra-small: 0px
 sm, small: 600px
@@ -330,63 +335,61 @@ md, medium: 900px
 lg, large: 1200px
 xl, extra-large: 1536px */
 
-
 @media screen and (max-width: 600px) {
-    html[data-initial='false'] {
-        font-size: 10px;
-    }
+	html[data-initial='false'] {
+		font-size: 12px;
+	}
 
-    .page-container > *:last-child {
-        padding: 1.5rem 0.75rem;
-    }
+	.page-container > *:last-child {
+		padding: 1.5rem 0.75rem;
+	}
 }
 
 @media screen and (min-width: 600px) and (max-width: 900px) {
-    #root > .windows-bar { 
-        width: 72vw;  
-    }
+	#root > .windows-bar {
+		width: 72vw;
+	}
 
-    html[data-initial='true'] > body > #root > .app-container {
-        width: 72vw;  
-        height: 78vh;  
-    }
+	html[data-initial='true'] > body > #root > .app-container {
+		width: 72vw;
+		height: 78vh;
+	}
 
-    html[data-initial='false'] {
-        font-size: 12px;
-    }
+	html[data-initial='false'] {
+		font-size: 13px;
+	}
 
-    .page-container > *:last-child {
-        padding: 2rem 1.25rem;
-    }
+	.page-container > *:last-child {
+		padding: 2rem 1.25rem;
+	}
 }
 
 @media screen and (min-width: 900px) and (max-width: 1200px) {
-    #root > .windows-bar { 
-        width: 70vw;  
-    }
+	#root > .windows-bar {
+		width: 70vw;
+	}
 
-    html[data-initial='true'] > body > #root > .app-container {
-        width: 70vw;  
-        height: 75vh;  
-    }
+	html[data-initial='true'] > body > #root > .app-container {
+		width: 70vw;
+		height: 75vh;
+	}
 
-    html[data-initial='false'] {
-        font-size: 14px;
-    }
+	html[data-initial='false'] {
+		font-size: 14px;
+	}
 
-    .page-container > *:last-child {
-        padding: 2.5rem 2.5rem;
-    }
+	.page-container > *:last-child {
+		padding: 2.5rem 2.5rem;
+	}
 }
 
-
 @media screen and (min-width: 1200px) and (max-width: 1536px) {
-    #root > .windows-bar { 
-        width: 70vw;  
-    }
+	#root > .windows-bar {
+		width: 70vw;
+	}
 
-    html[data-initial='true'] > body > #root > .app-container {
-        width: 70vw;  
-        height: 75vh;  
-    }
+	html[data-initial='true'] > body > #root > .app-container {
+		width: 70vw;
+		height: 75vh;
+	}
 }

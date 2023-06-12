@@ -6,6 +6,7 @@
 }
 
 .bottom-bar > ul {
+    padding-right: 0.5rem;
     display: flex;
     gap: 0.5rem;
     color: var(--nav-item-icon-fill);

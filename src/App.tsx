@@ -8,13 +8,7 @@ import {
 	useLocation,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import {
-	PATH_ABOUT,
-	PATH_BLOG,
-	PATH_GITHUB,
-	PATH_HOME,
-	PATH_PROJECTS,
-} from './constants/paths';
+
 import Explorer from './components/Explorer';
 import {
 	createRef,
@@ -43,6 +37,8 @@ import useWindowDimensions from './hooks/useWindowDimensions';
 
 import BottomBar from './components/BottomBar';
 import { Accent } from './constants/accent';
+import AnnouncementBar from './components/AnnouncementBar';
+import Snackbar from './components/Snackbar';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -95,11 +91,21 @@ const navItems = [
 ];
 
 const App = () => {
+	const [showSnackbar, setShowSnackbar] = useState(true);
+
 	const [isInitial, setIsInitial] = useState(() => window.innerWidth > 600);
 	const { theme, accent } = useAppSelector((state) => state.theme);
 	const [removeTransition, setRemoveTransition] = useState(() => !isInitial);
+	const [showAnnouncement, setShowAnnouncement] = useState(true);
 
 	const dispatch = useAppDispatch();
+
+	const ANNOUNCEMENT = () => (
+		<p>
+			React Developer. UX/UI Focused. Done is better than perfect.{' '}
+			<u>Let's work together!</u>
+		</p>
+	);
 
 	const handleAppContainerClick = (e: MouseEvent<HTMLDivElement>) => {
 		setIsInitial(false);
@@ -145,6 +151,26 @@ const App = () => {
 				className='app-container'
 			>
 				<Router>
+					{showSnackbar && (
+						<Snackbar
+							title='hello-world'
+							onClose={() => setShowSnackbar(false)}
+						>
+							<p>
+								this website is still under construction, so
+								make sure to stay in touch :)
+							</p>
+						</Snackbar>
+					)}
+
+					{showAnnouncement && (
+						<AnnouncementBar
+							onClick={() => console.log('clicked')}
+							onClose={() => setShowAnnouncement(false)}
+						>
+							<ANNOUNCEMENT />
+						</AnnouncementBar>
+					)}
 					<Navbar items={navItems} />
 					<Explorer />
 					<PageView>

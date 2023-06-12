@@ -1,9 +1,9 @@
 import React, { useState, useEffect, ReactNode, RefObject } from 'react';
 
-const getScrollPosition = () => {
-	const position = window.pageYOffset;
+const getScrollPosition = (ref?: RefObject<HTMLDivElement>) => {
+	if (ref) return ref.current?.scrollTop;
 
-	return position;
+	return window.pageYOffset;
 };
 
 export default function useScrollPosition(ref?: RefObject<HTMLDivElement>) {
@@ -13,8 +13,7 @@ export default function useScrollPosition(ref?: RefObject<HTMLDivElement>) {
 
 	useEffect(() => {
 		function handleScroll() {
-			setScrollPosition(getScrollPosition());
-			console.log('changing...');
+			setScrollPosition(() => getScrollPosition(ref));
 		}
 
 		if (!ref) return;

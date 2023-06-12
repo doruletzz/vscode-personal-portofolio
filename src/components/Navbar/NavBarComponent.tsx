@@ -18,7 +18,6 @@ import {
 import './NavBarComponent.css';
 import Badge from '../Badge';
 import useWindowDimensions from '../../hooks/useWindowDimensions';
-import useScrollPosition from '../../hooks/useScrollPosition';
 
 type NavItemProps = {
 	children: React.ReactNode;

@@ -8,13 +8,7 @@ import {
 	useLocation,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import {
-	PATH_ABOUT,
-	PATH_BLOG,
-	PATH_GITHUB,
-	PATH_HOME,
-	PATH_PROJECTS,
-} from './constants/paths';
+
 import Explorer from './components/Explorer';
 import {
 	createRef,

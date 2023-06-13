@@ -7,12 +7,15 @@ import './styles/reset.css';
 import './styles/colors.css';
 import './styles/fonts.css';
 
+import { BrowserRouter as Router } from 'react-router-dom';
 import { store } from './features/app/store';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<Provider store={store}>
-			<App />
+			<Router>
+				<App />
+			</Router>
 		</Provider>
 	</React.StrictMode>
 );

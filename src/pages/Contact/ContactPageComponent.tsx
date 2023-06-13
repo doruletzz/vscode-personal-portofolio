@@ -16,6 +16,8 @@ import {
 } from '../../constants/email';
 
 import './ContactPageComponent.css';
+import { useAppDispatch } from '../../features/app/hooks';
+import { setNotification } from '../../features/view/slice';
 
 type Social = {
 	name: string;
@@ -47,6 +49,7 @@ const SOCIALS: Array<Social> = [
 ];
 
 export const ContactPageComponent = () => {
+	const dispatch = useAppDispatch();
 	const [error, setError] = useState<string | null>(null);
 
 	const handleSubmit = (e: MouseEvent<HTMLButtonElement>) => {
@@ -57,14 +60,14 @@ export const ContactPageComponent = () => {
 		const emailError = validateEmail(email);
 		if (emailError) errors.push(emailError);
 
-		const nameError = validateName(name);
-		if (nameError) errors.push(nameError);
+		const subjectError = validateSubject(subject);
+		if (subjectError) errors.push(subjectError);
 
 		const messageError = validateMessage(message);
 		if (messageError) errors.push(messageError);
 
 		if (errors.length) {
-			setError(errors.join(' '));
+			setError(errors.join(' & '));
 			return;
 		}
 
@@ -78,7 +81,9 @@ export const ContactPageComponent = () => {
 
 	useEffect(() => {
 		if (error) {
-			console.error(error);
+			dispatch(
+				setNotification({ title: 'Contact Error', message: error })
+			);
 			setError(null);
 		}
 	}, [error]);
@@ -88,7 +93,7 @@ export const ContactPageComponent = () => {
 			return 'Please add a valid email.';
 	};
 
-	const validateName = (value: string) => {
+	const validateSubject = (value: string) => {
 		if (!value || value.length === 0) return 'Please add a subject title.';
 	};
 
@@ -106,13 +111,10 @@ export const ContactPageComponent = () => {
 			<h1 className='heading'>GET IN TOUCH</h1>
 			<div className='contacts'>
 				<Card component='form' className='form'>
+					{error}
+					<Input value={name} setValue={setName} label='Full Name' />
 					<Input
 						required
-						value={name}
-						setValue={setName}
-						label='Full Name'
-					/>
-					<Input
 						value={subject}
 						setValue={setSubject}
 						label='Subject'

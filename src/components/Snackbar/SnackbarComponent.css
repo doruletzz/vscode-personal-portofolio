@@ -27,6 +27,9 @@
 .snackbar-container > .card-content > .snackbar-header {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	font-family: var(--ff-heading);
+	font-weight: bold;
 }
 
 .snackbar-container > .card-content > .snackbar-header > .button {
@@ -36,7 +39,11 @@
 }
 
 .snackbar-container > .card-content > .snackbar-header > .button > svg {
-	width: 0.5rem;
-	height: 0.5rem;
+	width: 0.75rem;
+	height: 0.75rem;
 	fill: var(--text-page-secondary);
+}
+
+.snackbar-container > .card-content > .snackbar-content {
+	line-height: 1.5;
 }

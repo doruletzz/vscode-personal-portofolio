@@ -6,19 +6,12 @@ import {
 	Route,
 	Navigate,
 	useLocation,
+	useNavigate,
 } from 'react-router-dom';
 import Navbar from './components/Navbar';
 
 import Explorer from './components/Explorer';
-import {
-	createRef,
-	lazy,
-	MouseEvent,
-	RefObject,
-	Suspense,
-	useEffect,
-	useState,
-} from 'react';
+import { lazy, MouseEvent, Suspense, useEffect, useState } from 'react';
 import { Module } from './constants/module';
 
 import { ReactComponent as HomeIcon } from './assets/home.svg';
@@ -28,17 +21,16 @@ import { ReactComponent as GithubIcon } from './assets/github.svg';
 import { ReactComponent as BlogIcon } from './assets/blog.svg';
 import { ReactComponent as ContactIcon } from './assets/contact.svg';
 import { ReactComponent as ThemeIcon } from './assets/theme.svg';
-import { ReactComponent as TopBar } from './assets/topbar.svg';
 import { useAppDispatch, useAppSelector } from './features/app/hooks';
 import { Theme } from './constants/theme';
 import Progress from './components/Progress';
 import { setIsModuleExpanded } from './features/module/slice';
-import useWindowDimensions from './hooks/useWindowDimensions';
 
 import BottomBar from './components/BottomBar';
 import { Accent } from './constants/accent';
 import AnnouncementBar from './components/AnnouncementBar';
 import Snackbar from './components/Snackbar';
+import { setNotification } from './features/view/slice';
 
 const HomePage = lazy(() => import('./pages/Home'));
 const AboutPage = lazy(() => import('./pages/About'));
@@ -95,15 +87,17 @@ const App = () => {
 
 	const [isInitial, setIsInitial] = useState(() => window.innerWidth > 600);
 	const { theme, accent } = useAppSelector((state) => state.theme);
+	const { notification } = useAppSelector((state) => state.view);
 	const [removeTransition, setRemoveTransition] = useState(() => !isInitial);
 	const [showAnnouncement, setShowAnnouncement] = useState(true);
 
 	const dispatch = useAppDispatch();
+	const navigate = useNavigate();
 
 	const ANNOUNCEMENT = () => (
 		<p>
 			React Developer. UX/UI Focused. Done is better than perfect.{' '}
-			<u>Let's work together!</u>
+			<u>Check out my work!</u>
 		</p>
 	);
 
@@ -150,61 +144,47 @@ const App = () => {
 				style={removeTransition ? { transition: 'none' } : {}}
 				className='app-container'
 			>
-				<Router>
-					{showSnackbar && (
-						<Snackbar
-							title='hello-world'
-							onClose={() => setShowSnackbar(false)}
-						>
-							<p>
-								this website is still under construction, so
-								make sure to stay in touch :)
-							</p>
-						</Snackbar>
-					)}
+				{notification && (
+					<Snackbar
+						title={notification.title}
+						onClose={() => dispatch(setNotification(null))}
+					>
+						<p>{notification.message}</p>
+					</Snackbar>
+				)}
 
-					{showAnnouncement && (
-						<AnnouncementBar
-							onClick={() => console.log('clicked')}
-							onClose={() => setShowAnnouncement(false)}
-						>
-							<ANNOUNCEMENT />
-						</AnnouncementBar>
-					)}
-					<Navbar items={navItems} />
-					<Explorer />
-					<PageView>
-						<Suspense fallback={<Progress />}>
-							<Routes>
-								<Route path='home/*' element={<HomePage />} />
-								<Route path='about/*' element={<AboutPage />} />
-								<Route
-									path='blog/:id'
-									element={<BlogPostPage />}
-								/>
-								<Route path='blog/' element={<BlogPage />} />
-								<Route
-									path='projects/*'
-									element={<ProjectsPage />}
-								/>
-								<Route
-									path='github/*'
-									element={<GithubPage />}
-								/>
-								<Route
-									path='contact/*'
-									element={<ContactPage />}
-								/>
-								<Route path='theme/*' element={<ThemePage />} />
-								<Route
-									path='*'
-									element={<Navigate to='home/' />}
-								/>
-							</Routes>
-						</Suspense>
-					</PageView>
-					<BottomBar />
-				</Router>
+				{showAnnouncement && (
+					<AnnouncementBar
+						onClick={() => {
+							navigate('/projects');
+							setShowAnnouncement(false);
+						}}
+						onClose={() => setShowAnnouncement(false)}
+					>
+						<ANNOUNCEMENT />
+					</AnnouncementBar>
+				)}
+				<Navbar items={navItems} />
+				<Explorer />
+				<PageView>
+					<Suspense fallback={<Progress />}>
+						<Routes>
+							<Route path='home/*' element={<HomePage />} />
+							<Route path='about/*' element={<AboutPage />} />
+							<Route path='blog/:id' element={<BlogPostPage />} />
+							<Route path='blog/' element={<BlogPage />} />
+							<Route
+								path='projects/*'
+								element={<ProjectsPage />}
+							/>
+							<Route path='github/*' element={<GithubPage />} />
+							<Route path='contact/*' element={<ContactPage />} />
+							<Route path='theme/*' element={<ThemePage />} />
+							<Route path='*' element={<Navigate to='home/' />} />
+						</Routes>
+					</Suspense>
+				</PageView>
+				<BottomBar />
 			</div>
 		</>
 	);

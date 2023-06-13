@@ -3,14 +3,17 @@ import DORLETZ from '../../assets/dorletz.svg';
 import CHESSPAL from '../../assets/chesspal.svg';
 import KITEAPP from '../../assets/kite-app.svg';
 import GYMAPP from '../../assets/gym-app.svg';
+import KEYCAPS from '../../assets/keycaps-logo.svg';
 import dorletzImage from '../../assets/dorletz-cover.png';
 import gymImage from '../../assets/gym-app-cover.png';
 import kiteImage from '../../assets/kite-surf-cover.png';
 import chesspalImage from '../../assets/chesspal-cover.png';
+import keycapsImage from '../../assets/keycaps-cover.png';
 import { KiteSurfContent } from './KiteSurfContent';
 import { GymAppContent } from './GymAppContent';
 import { ChessPalContent } from './ChessPalContent';
 import { DorletzContent } from './DorletzContent';
+import { KeyCapsContent } from './KeyCapsContent';
 
 export const projects: Project[] = [
 	{
@@ -25,20 +28,21 @@ export const projects: Project[] = [
 		github: 'https://github.com/doruletzz/chesspal',
 		demo: 'https://google.de',
 	},
-	// {
-	// 	icon: DORLETZ,
-	// 	imgSrc: dorletzImage,
-	// 	title: 'KeyCaps',
-	// 	description: 'Web Store for mechanical keyboards',
-	// 	slug: 'keycaps',
-	// 	github: 'https://github.com/doruletzz/vscode-personal-portofolio',
-	// 	demo: 'https://dorletz.com',
-	// },
+	{
+		icon: KEYCAPS,
+		content: <KeyCapsContent />,
+		imgSrc: keycapsImage,
+		title: 'KeyCaps',
+		description: 'Web Store for mechanical keyboards',
+		slug: 'keycaps',
+		github: 'https://github.com/doruletzz/vscode-personal-portofolio',
+		demo: 'https://dorletz.com',
+	},
 	{
 		icon: DORLETZ,
 		imgSrc: dorletzImage,
 		content: <DorletzContent />,
-		title: 'dorletz.com',
+		title: 'Dor-letz',
 		description:
 			"My personal website that serves as a showcase of skills and expertise while providing visitors with an engaging and immersive experience. UI being inspired by Visual Studio Code's aesthetics",
 		slug: 'dorletz',
@@ -51,7 +55,7 @@ export const projects: Project[] = [
 		content: <GymAppContent />,
 		title: 'Gym App',
 		description:
-			'The Gym App is a React Web Application designed to revolutionize the fitness experience. By seamlessly integrating training and nutrition plans based on user input, it empowers fitness enthusiasts to achieve their goals effectively',
+			'React Web Application designed to revolutionize the fitness experience. By seamlessly integrating training and nutrition plans based on user input, it empowers fitness enthusiasts to achieve their goals effectively',
 		slug: 'gym-app',
 		// github: 'https://github.com/doruletzz/kite-surf-react-app',
 		// demo: 'https://google.de',

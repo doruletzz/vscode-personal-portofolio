@@ -19,24 +19,25 @@ export const projects: Project[] = [
 	{
 		icon: CHESSPAL,
 		content: <ChessPalContent />,
-		badge: 'CHECK ME OUT',
+		badge: 'WORKING ON',
 		imgSrc: chesspalImage,
 		title: 'ChessPal',
 		description:
 			'Your personal chess exploration tool, ChessPal, is a React Web Application designed to empower chess enthusiasts with a comprehensive platform for strategic analysis, game preparation, and immersive gameplay experiences',
 		slug: 'chesspal',
 		github: 'https://github.com/doruletzz/chesspal',
-		demo: 'https://google.de',
+		// demo: 'https://google.de',
 	},
 	{
 		icon: KEYCAPS,
 		content: <KeyCapsContent />,
+		badge: 'WORKING ON',
 		imgSrc: keycapsImage,
 		title: 'KeyCaps',
 		description: 'Web Store for mechanical keyboards',
 		slug: 'keycaps',
 		github: 'https://github.com/doruletzz/vscode-personal-portofolio',
-		demo: 'https://dorletz.com',
+		demo: 'https://keycaps-doruletzz.vercel.app/',
 	},
 	{
 		icon: DORLETZ,
@@ -57,7 +58,7 @@ export const projects: Project[] = [
 		description:
 			'React Web Application designed to revolutionize the fitness experience. By seamlessly integrating training and nutrition plans based on user input, it empowers fitness enthusiasts to achieve their goals effectively',
 		slug: 'gym-app',
-		// github: 'https://github.com/doruletzz/kite-surf-react-app',
+		github: 'https://github.com/doruletzz/gym-app',
 		// demo: 'https://google.de',
 	},
 	{
@@ -69,6 +70,6 @@ export const projects: Project[] = [
 			'A web application tailored for kite surfers seeking the best spots for their adrenaline-fueled adventures. With its intuitive interface and advanced features, users can effortlessly discover and explore ideal kite surfing locations worldwide',
 		slug: 'kite-surf',
 		github: 'https://github.com/doruletzz/kite-surf-react-app',
-		demo: 'https://google.de',
+		demo: 'https://kite-surf.netlify.app/',
 	},
 ];
